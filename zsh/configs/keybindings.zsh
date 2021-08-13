@@ -3,7 +3,6 @@ stty -ixon
 
 # vi mode
 bindkey -v
-bindkey "^F" vi-cmd-mode
 
 # handy keybindings
 bindkey "^A" beginning-of-line
@@ -15,3 +14,5 @@ bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word
 bindkey "^Q" push-line-or-edit
 bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
+#
+# bindkey -s ^f "tmux-sessionizer\n"
