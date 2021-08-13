@@ -22,12 +22,10 @@ else
 endif
 
 Plug 'junegunn/fzf.vim'
-Plug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
 Plug 'pangloss/vim-javascript'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'tpope/vim-bundler'
-" Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
@@ -40,15 +38,20 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment'
 Plug 'itchyny/lightline.vim'
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'leafgarland/typescript-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'jxnblk/vim-mdx-js'
 
-" nvim/lsp stuff, you know
-Plug 'sbdchd/neoformat'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'glepnir/lspsaga.nvim'
+if has('nvim')
+  " Formatter for prettier, and all other formatters.
+  Plug 'sbdchd/neoformat'
+
+  " LSP configuration made easy.
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'glepnir/lspsaga.nvim'
+
+  " Auto-completion for nvim.
+  Plug 'hrsh7th/nvim-compe'
+endif
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
