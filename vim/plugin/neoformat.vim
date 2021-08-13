@@ -3,4 +3,5 @@ augroup fmt
   au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 augroup END
 
-let g:neoformat_enabled_typescriptreact = ['prettier-eslint']
+let g:neoformat_enabled_typescriptreact = ['prettier']
+let g:neoformat_enabled_typescript = ['prettier']
