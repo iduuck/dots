@@ -29,6 +29,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/tComment'
 
+" Some visual adjustments.
 Plug 'itchyny/lightline.vim'
 Plug 'arcticicestudio/nord-vim'
 
@@ -41,6 +42,9 @@ if has('nvim')
 
   " Auto-completion for nvim.
   Plug 'hrsh7th/nvim-compe'
+
+  " Lightweight LSP plugin with highly performant UI.
+  Plug 'glepnir/lspsaga.nvim'
 endif
 
 if filereadable(expand("~/.vimrc.bundles.local"))
