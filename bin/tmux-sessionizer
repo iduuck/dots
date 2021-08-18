@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
-else
-    items=`find ~/dev -maxdepth 1 -mindepth 1 -type d`
-    items+=`find ~/.dotfiles -maxdepth 1 -mindepth 1 -type d`
-    items+=("$HOME/dev")
-    items+=("$HOME/.dotfiles")
-    selected=`echo "$items" | fzf`
-fi
+set -e
 
-tmux_session_name=`basename $selected | tr . _`
+projects=$(echo "$TMUX_SESSIONIZER_PATHS" | tr ":" "\n")
+projects_found=`echo $projects | xargs -n 1 -I {} find {} -maxdepth 1 -mindepth 1 -type d`
+selected_project=`echo "$projects_found" | fzf`
+session_name=`basename $selected_project | tr . _`
 
-# Make use of the `tat` binary.
-tat $selected
+cd $selected_project
+tat $session_name
