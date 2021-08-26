@@ -1,4 +1,4 @@
-export TERM=xterm-256color
+[[ -f ~/.zsh_config ]] && source ~/.zsh_config
 
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
