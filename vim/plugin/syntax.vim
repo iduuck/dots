@@ -12,11 +12,10 @@ augroup vimrcEx
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
-  autocmd BufRead,BufNewFile aliases.local,zshrc.local,*/zsh/configs/* set filetype=sh
+  autocmd BufRead,BufNewFile aliases.local,zshrc.local,*/zsh/configs/* set filetype=zsh
   autocmd BufRead,BufNewFile gitconfig.local set filetype=gitconfig
   autocmd BufRead,BufNewFile tmux.conf.local set filetype=tmux
   autocmd BufRead,BufNewFile vimrc.local set filetype=vim
   autocmd BufNewFile,BufRead *.jb set filetype=ruby
   autocmd BufNewFile,BufRead *.sol set filetype=solidity
-  " autocmd BufNewFile,BufRead *.jsx,*.tsx set filetype=typescriptreact
 augroup END
