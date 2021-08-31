@@ -43,7 +43,12 @@ if has('nvim')
   " Auto-completion for nvim.
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'saadparwaiz1/cmp_luasnip'
   Plug 'hrsh7th/nvim-cmp'
+
+  " Snippets and auto completion
+  Plug 'rafamadriz/friendly-snippets'
+  Plug 'L3MON4D3/LuaSnip'
 
   " Lightweight LSP plugin with highly performant UI.
   Plug 'glepnir/lspsaga.nvim'
