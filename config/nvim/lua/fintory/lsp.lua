@@ -30,9 +30,6 @@ cmp.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- Setup: luasnip
-require("luasnip/loaders/from_vscode").lazy_load {}
-
 -- Setup: LSP
 local lsp_on_attach = function(client)
   -- Mappings.
