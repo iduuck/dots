@@ -22,6 +22,7 @@ set modelines=0   " Disable modelines as a security precaution
 set nomodeline
 set guicursor=    " Remove gui cursor
 set smartindent
+set shortmess+=a
 
 set updatetime=50
 
