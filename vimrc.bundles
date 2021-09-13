@@ -8,15 +8,6 @@ command!  -nargs=1 UnPlug call s:UnPlug(<args>)
 
 call plug#begin('~/.vim/bundle')
 
-" If fzf has already been installed via Homebrew, use the existing fzf
-" Otherwise, install fzf. The `--all` flag makes fzf accessible outside of vim
-if isdirectory("/usr/local/opt/fzf")
-  Plug '/usr/local/opt/fzf'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-endif
-
-Plug 'junegunn/fzf.vim'
 Plug 'janko-m/vim-test'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'tpope/vim-bundler'
@@ -52,6 +43,14 @@ if has('nvim')
 
   " Lightweight LSP plugin with highly performant UI.
   Plug 'glepnir/lspsaga.nvim'
+
+  " Tree-shitter for parsing and syntax features.
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+  " Telescope for fuzzy finding files
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-fzy-native.nvim'
 endif
 
 if filereadable(expand("~/.vimrc.bundles.local"))

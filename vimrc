@@ -21,6 +21,8 @@ endif
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
+nnoremap <C-p> :Telescope git_files<CR>
+
 " Get off my lawn
 nnoremap <Left> :echoe "Use d"<CR>
 nnoremap <Right> :echoe "Use a"<CR>
@@ -46,9 +48,6 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
-
-" Map Ctrl + p to open fuzzy find (FZF)
-nnoremap <c-p> :Files<cr>
 
 " Always use vertical diffs
 set diffopt+=vertical
