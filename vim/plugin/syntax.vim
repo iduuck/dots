@@ -10,6 +10,7 @@ augroup vimrcEx
     \ endif
 
   " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile rise set filetype=bash
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
   autocmd BufRead,BufNewFile aliases.local,zshrc.local,*/zsh/configs/* set filetype=zsh
