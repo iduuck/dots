@@ -1,5 +1,6 @@
 local ts = require("telescope")
 local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
 
 -- Do the plain setup for Telescope
 ts.setup({
@@ -20,18 +21,12 @@ ts.load_extension("fzy_native")
 -- Extend telescope with own functionality
 local M = {}
 
+local function create_branch_conditionally(prompt_bufnr)
+  print(prompt_bufnr)
+end
+
 M.git_branches = function()
-    require("telescope.builtin").git_branches({
-        attach_mappings = function(_, map)
-            map("i", "<c-d>", actions.git_delete_branch)
-            map("n", "<c-d>", actions.git_delete_branch)
-
-            map("i", "<c-r>", actions.git_rebase_branch)
-            map("n", "<c-r>", actions.git_rebase_branch)
-
-            return true
-        end,
-    })
+    require("telescope.builtin").git_branches()
   end
 
 return M

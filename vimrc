@@ -21,8 +21,6 @@ endif
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
-nnoremap <C-p> :Telescope git_files<CR>
-
 " Get off my lawn
 nnoremap <Left> :echoe "Use d"<CR>
 nnoremap <Right> :echoe "Use a"<CR>
