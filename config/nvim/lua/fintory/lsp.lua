@@ -1,5 +1,8 @@
 vim.o.completeopt = "menuone,noselect"
 
+-- Setup: LSP Saga
+require 'lspsaga'.init_lsp_saga()
+
 -- Setup: nvim.cmp
 local cmp = require'cmp'
 
