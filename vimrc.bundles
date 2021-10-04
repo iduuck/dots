@@ -42,7 +42,7 @@ if has('nvim')
   Plug 'L3MON4D3/LuaSnip'
 
   " Lightweight LSP plugin with highly performant UI.
-  Plug 'glepnir/lspsaga.nvim'
+  Plug 'tami5/lspsaga.nvim'
 
   " Tree-shitter for parsing and syntax features.
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
