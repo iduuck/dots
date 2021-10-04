@@ -13,6 +13,7 @@
   co = checkout
   pf = push --force-with-lease
   st = status
+  lg = log --oneline
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
