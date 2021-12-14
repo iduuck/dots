@@ -26,7 +26,10 @@ Plug 'arcticicestudio/nord-vim'
 
 if has('nvim')
   " Formatter for prettier, and all other formatters.
-  Plug 'sbdchd/neoformat'
+  " Plug 'sbdchd/neoformat'
+  
+  " Formatter using LSP
+  Plug 'jose-elias-alvarez/null-ls.nvim'
 
   " LSP configuration made easy.
   Plug 'neovim/nvim-lspconfig'
@@ -38,7 +41,7 @@ if has('nvim')
   Plug 'hrsh7th/nvim-cmp'
 
   " Snippets and auto completion
-  Plug 'rafamadriz/friendly-snippets'
+  " Plug 'rafamadriz/friendly-snippets'
   Plug 'L3MON4D3/LuaSnip'
 
   " Lightweight LSP plugin with highly performant UI.
@@ -46,11 +49,12 @@ if has('nvim')
 
   " Tree-shitter for parsing and syntax features.
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/playground'
 
   " Telescope for fuzzy finding files
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-telescope/telescope-fzy-native.nvim'
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 endif
 
 if filereadable(expand("~/.vimrc.bundles.local"))

@@ -32,7 +32,4 @@
   colorMoved = zebra
 [user]
 	name = Nick Schmidt
-	email = nick@kreativgebiet.com
-	signingkey = 4F23C28E7D95A2B28AF1DED865F0CC1664A355BC
-[gpg]
-	program = /usr/local/MacGPG2/bin/gpg2
+	email = 325241+iDuuck@users.noreply.github.com

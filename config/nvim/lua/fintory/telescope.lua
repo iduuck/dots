@@ -8,15 +8,16 @@ ts.setup({
     prompt_prefix = ' >'
   },
   extensions = {
-    fzy_native = {
+    fzy = {
+      fuzzy = true,
       override_generic_sorter = false,
       override_file_sorter = true,
     },
   },
 })
 
--- Load Extsions for Telescope
-ts.load_extension("fzy_native")
+-- Load Ext for Telescope
+ts.load_extension("fzf")
 
 -- Extend telescope with own functionality
 local M = {}

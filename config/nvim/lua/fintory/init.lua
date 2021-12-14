@@ -1,3 +1,5 @@
+require('fintory.null-ls')
 require('fintory.lsp')
 require('fintory.luasnip')
 require('fintory.telescope')
+require('fintory.treesitter')
