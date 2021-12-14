@@ -22,7 +22,7 @@ set modelines=0   " Disable modelines as a security precaution
 set nomodeline
 set guicursor=    " Remove gui cursor
 set smartindent
-set shortmess+=a
+set shortmess=at
 
 set updatetime=50
 
@@ -50,3 +50,5 @@ set numberwidth=5
 set splitbelow
 set splitright
 
+" Disable the signs column, because it is jumping a lot.
+set signcolumn=no
