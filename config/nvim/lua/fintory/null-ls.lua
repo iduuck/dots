@@ -6,7 +6,7 @@ null_ls.setup({
   sources = {
     -- Diagnostics
     null_ls.builtins.diagnostics.rubocop,
-    helpers.conditional(function (utils)
+    nls_helpers.conditional(function (utils)
       return utils.root_has_file(".eslintrc.json") or utils.root_has_file(".eslintrc.js") and null_ls.builtins.diagnostics.eslint_d
     end),
 
@@ -15,7 +15,7 @@ null_ls.setup({
       filetypes = { 'text', 'sh', 'zsh', 'toml', 'make', 'conf', 'tmux' },
     }),
     null_ls.builtins.formatting.prettierd,
-    helpers.conditional(function (utils)
+    nls_helpers.conditional(function (utils)
       return utils.root_has_file(".eslintrc.json") or utils.root_has_file(".eslintrc.js") and null_ls.builtins.formatting.eslint_d
     end),
     null_ls.builtins.formatting.stylelint
