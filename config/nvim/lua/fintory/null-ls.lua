@@ -6,6 +6,7 @@ null_ls.setup({
   sources = {
     -- Diagnostics
     null_ls.builtins.diagnostics.rubocop,
+    null_ls.builtins.diagnostics.stylelint
     nls_helpers.conditional(function (utils)
       return utils.root_has_file(".eslintrc.json") or utils.root_has_file(".eslintrc.js") and null_ls.builtins.diagnostics.eslint_d
     end),
