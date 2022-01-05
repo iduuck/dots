@@ -20,6 +20,8 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/tComment'
 
+Plug 'tomlion/vim-solidity'
+
 " Some visual adjustments.
 Plug 'itchyny/lightline.vim'
 Plug 'arcticicestudio/nord-vim'
