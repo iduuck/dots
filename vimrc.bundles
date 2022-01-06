@@ -9,7 +9,6 @@ command!  -nargs=1 UnPlug call s:UnPlug(<args>)
 call plug#begin('~/.vim/bundle')
 
 Plug 'janko-m/vim-test'
-Plug 'pbrisbin/vim-mkdir'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -21,43 +20,6 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/tComment'
 
 Plug 'tomlion/vim-solidity'
-
-" Some visual adjustments.
-Plug 'itchyny/lightline.vim'
-Plug 'arcticicestudio/nord-vim'
-
-if has('nvim')
-  " Formatter for prettier, and all other formatters.
-  " Plug 'sbdchd/neoformat'
-  
-  " Formatter using LSP
-  Plug 'jose-elias-alvarez/null-ls.nvim'
-
-  " LSP configuration made easy.
-  Plug 'neovim/nvim-lspconfig'
-
-  " Auto-completion for nvim.
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'saadparwaiz1/cmp_luasnip'
-  Plug 'hrsh7th/nvim-cmp'
-
-  " Snippets and auto completion
-  " Plug 'rafamadriz/friendly-snippets'
-  Plug 'L3MON4D3/LuaSnip'
-
-  " Lightweight LSP plugin with highly performant UI.
-  Plug 'tami5/lspsaga.nvim'
-
-  " Tree-shitter for parsing and syntax features.
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'nvim-treesitter/playground'
-
-  " Telescope for fuzzy finding files
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-endif
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local

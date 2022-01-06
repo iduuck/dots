@@ -1,3 +1,4 @@
+local K = require('fintory.keymap')
 local M = {}
 
 function M.mappings(bufnr)
@@ -6,6 +7,9 @@ function M.mappings(bufnr)
     noremap = true,
     silent = true
   }
+
+  K.n('<slient><Leader>cca', '<cmd>Lspsaga code_action<CR>')
+  K.n('<slient><Leader>crn', '<cmd>Lspsaga rename<CR>')
 
   key_map(bufnr, 'n', 'ga','<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   key_map(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)

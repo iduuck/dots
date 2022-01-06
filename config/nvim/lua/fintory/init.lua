@@ -1,5 +1,2 @@
-require('fintory.null-ls')
-require('fintory.lsp')
-require('fintory.luasnip')
-require('fintory.telescope')
-require('fintory.treesitter')
+require('fintory.settings')
+require('fintory.packs')
