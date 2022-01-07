@@ -18,6 +18,11 @@ return require('packer').startup(function ()
   use 'tpope/vim-repeat'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-surround'
+  use 'vim-scripts/tComment'
+
+  -- Multiple packs for better syntax support.
+  use 'tomlion/vim-solidity'
+  use 'pangloss/vim-javascript'
 
   -- Easy launching of tests in ruby and javascript
   --
@@ -147,7 +152,7 @@ return require('packer').startup(function ()
         -- Do the plain setup for Telescope
         require('telescope').setup({
           defaults = {
-            prompt_prefix = ' ❯ '
+            prompt_prefix = ' ❯ ',
           },
           extensions = {
             fzy = {
@@ -157,12 +162,14 @@ return require('packer').startup(function ()
             },
           },
         })
+
         require('telescope').load_extension('fzf')
       end,
     },
     {
       'nvim-telescope/telescope-symbols.nvim',
       after = 'telescope.nvim',
+      requires = { { 'kyazdani42/nvim-web-devicons' } }
     }
   })
 
