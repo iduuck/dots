@@ -173,9 +173,12 @@ return require('packer').startup(function ()
   })
 
   use {
-    'arcticicestudio/nord-vim',
+    'projekt0n/github-nvim-theme',
+    after = "lualine.nvim",
     config = function()
-      vim.cmd('colorscheme nord')
+      require('github-theme').setup({
+        theme_style = 'dimmed'
+      })
     end
   }
 end)
