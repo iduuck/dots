@@ -5,6 +5,9 @@ local o = vim.o
 o.termguicolors = true
 o.background = 'dark'
 
+-- Hide '-- INSERT --' line
+vim.cmd('set noshowmode')
+
 -- Ignore some files
 vim.opt.wildignore:append {
     '.DS_Store',
