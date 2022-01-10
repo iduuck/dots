@@ -16,7 +16,6 @@ return require('packer').startup(function ()
   use 'tpope/vim-rails'
   use 'tpope/vim-rake'
   use 'tpope/vim-repeat'
-  use 'tpope/vim-rhubarb'
   use 'tpope/vim-surround'
   use 'vim-scripts/tComment'
 
