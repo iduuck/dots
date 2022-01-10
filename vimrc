@@ -1,22 +1,22 @@
 " Leader
 let mapleader = " "
 
-set wildignore+=*.DS_Store
-set wildignore+=*_build/*
-set wildignore+=**/coverage/*
-set wildignore+=**/node_modules/*
-set wildignore+=**/android/*
-set wildignore+=**/ios/*
-set wildignore+=**/.git/*
+" set wildignore+=*.DS_Store
+" set wildignore+=*_build/*
+" set wildignore+=**/coverage/*
+" set wildignore+=**/node_modules/*
+" set wildignore+=**/android/*
+" set wildignore+=**/ios/*
+" set wildignore+=**/.git/*
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
-endif
+" if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+"   runtime! macros/matchit.vim
+" endif
 
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
@@ -44,11 +44,8 @@ inoremap > ><c-g>u
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" Treat <li> and <p> tags like the block tags they are
-let g:html_indent_tags = 'li\|p'
-
 " Always use vertical diffs
-set diffopt+=vertical
+" set diffopt+=vertical
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

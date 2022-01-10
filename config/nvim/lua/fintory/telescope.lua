@@ -1,33 +1,15 @@
-local ts = require("telescope")
-local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
+local K = require('fintory.keymap')
 
--- Do the plain setup for Telescope
-ts.setup({
-  defaults = {
-    prompt_prefix = ' >'
-  },
-  extensions = {
-    fzy = {
-      fuzzy = true,
-      override_generic_sorter = false,
-      override_file_sorter = true,
-    },
-  },
+-- This block is to expose the `Telescope` block into the lua world. And to be
+-- used int he following keymaps
+_G.Telescope = setmetatable({}, {
+    __index = function(_, k)
+        if vim.bo.filetype == 'NvimTree' then
+            A.nvim_command('wincmd l')
+        end
+        return require('telescope.builtin')[k]
+    end,
 })
 
--- Load Ext for Telescope
-ts.load_extension("fzf")
-
--- Extend telescope with own functionality
-local M = {}
-
-local function create_branch_conditionally(prompt_bufnr)
-  print(prompt_bufnr)
-end
-
-M.git_branches = function()
-    require("telescope.builtin").git_branches()
-  end
-
-return M
+K.n('<C-P>', '<CMD>lua Telescope.find_files({ hidden = true })<CR>')
+K.n('<leader>gc', '<CMD>lua Telescope.git_branches()<CR>')
