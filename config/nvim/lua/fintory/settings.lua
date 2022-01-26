@@ -1,3 +1,4 @@
+local AU = require('fintory.augroup')
 local g = vim.g
 local o = vim.o
 
@@ -59,3 +60,13 @@ o.numberwidth = 5
 o.relativenumber = true
 o.signcolumn = 'no'
 o.cursorline = true
+
+-- Set some definitive file types
+AU.create_augroup({
+  { 'BufRead,BufNewFile', '*.md', 'set filetype=markdown' },
+  { 'BufRead,BufNewFile', '*.jb', 'set filetype=ruby' },
+  { 'BufRead,BufNewFile', '*.sol', 'set filetype=solidity' },
+  { 'BufRead,BufNewFile', 'aliases.local,zshrc.local,*/zsh/configs/*', 'set filetype=zsh' },
+  { 'BufRead,BufNewFile', 'gitconfig.local', 'set filetype=gitconfig' },
+  { 'BufRead,BufNewFile', 'tmux.conf.local', 'set filetype=tmux' }
+}, 'vimrcEx')

@@ -3,22 +3,19 @@ local nls_helpers = require('null-ls.helpers')
 local lsp_utils = require('fintory.utils.lsp')
 
 null_ls.setup({
+  -- Uncomment following line, if you want to debug a built-in
+  -- debug = true,
+
   sources = {
     -- Diagnostics
     null_ls.builtins.diagnostics.rubocop,
     null_ls.builtins.diagnostics.stylelint,
-    -- nls_helpers.condition(function (utils)
-    --   return utils.root_has_file(".eslintrc.json") or utils.root_has_file(".eslintrc.js") and null_ls.builtins.diagnostics.eslint_d
-    -- end),
 
     -- Formatting
     null_ls.builtins.formatting.trim_whitespace.with({
-      filetypes = { 'text', 'sh', 'zsh', 'toml', 'make', 'conf', 'tmux' },
+      filetypes = { 'text', 'sh', 'zsh', 'toml', 'make', 'conf', 'tmux', 'ruby', 'typescriptreact', 'javascriptreact' },
     }),
     null_ls.builtins.formatting.prettierd,
-    -- nls_helpers.condition(function (utils)
-    --   return utils.root_has_file(".eslintrc.json") or utils.root_has_file(".eslintrc.js") and null_ls.builtins.formatting.eslint_d
-    -- end),
     null_ls.builtins.formatting.stylelint
   },
 

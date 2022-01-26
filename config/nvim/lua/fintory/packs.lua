@@ -17,6 +17,7 @@ return require('packer').startup(function ()
   use 'tpope/vim-rake'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
+  use 'tpope/vim-dispatch'
   use 'vim-scripts/tComment'
 
   -- Multiple packs for better syntax support.
@@ -24,16 +25,17 @@ return require('packer').startup(function ()
   use 'pangloss/vim-javascript'
 
   -- Easy launching of tests in ruby and javascript
-  --
+  -- https://github.com/janko-m/vim-test
   use {
     'janko-m/vim-test',
+    after = 'vim-dispatch',
     config = function()
       require('fintory.packs.test')
     end
   }
 
   -- Ag support
-  --
+  -- https://github.com/mileszs/ack.vim
   use {
     'mileszs/ack.vim',
     config = function()
@@ -50,7 +52,7 @@ return require('packer').startup(function ()
   use {
     'jose-elias-alvarez/null-ls.nvim',
     config = function()
-      require('fintory.null-ls')
+      require('fintory.packs.null-ls')
     end
   }
 
@@ -60,7 +62,7 @@ return require('packer').startup(function ()
     'neovim/nvim-lspconfig',
     event = 'BufRead',
     config = function()
-      require('fintory.lsp')
+      require('fintory.packs.lsp')
     end,
     requires = {
       {
@@ -78,7 +80,7 @@ return require('packer').startup(function ()
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
-      require('fintory.lualine')
+      require('fintory.packs.lualine')
     end
   }
 
@@ -100,7 +102,7 @@ return require('packer').startup(function ()
         'L3MON4D3/LuaSnip',
         event = 'CursorHold',
         config = function()
-          require('fintory.luasnip')
+          require('fintory.packs.luasnip')
         end,
         -- requires = { 'rafamadriz/friendly-snippets' },
       },
@@ -117,7 +119,7 @@ return require('packer').startup(function ()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
-      require('fintory.treesitter')
+      require('fintory.packs.treesitter')
     end
   }
 
@@ -140,7 +142,7 @@ return require('packer').startup(function ()
       event = 'CursorHold',
       requires = { { 'nvim-lua/plenary.nvim' } },
       config = function()
-        require('fintory.telescope')
+        require('fintory.packs.telescope')
       end
     },
     {
