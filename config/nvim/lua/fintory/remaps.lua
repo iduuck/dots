@@ -25,8 +25,8 @@ K.i('>', '><c-g>u')
 
 -- Easy moving of lines in visual mode
 -- First, move the line, and then apply indentation, and apply visual selection.
-K.v('J', '<cmd>m \'>+1<CR>gv=gv')
-K.v('K', '<cmd>m \'<-2<CR>gv=gv')
+K.x('J', ":move '>+1<CR>gv=gv")
+K.x('K', ":move '<-2<CR>gv=gv")
 
 -- LSP saga code actions
 K.n('<Leader>cca', '<cmd>Lspsaga code_action<CR>')
