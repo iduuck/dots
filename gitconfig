@@ -21,7 +21,6 @@
   ff = only
 [commit]
   template = ~/.gitmessage
-	gpgsign = true
 [fetch]
   prune = true
 [rebase]
@@ -30,6 +29,3 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
-[user]
-	name = Nick Schmidt
-	email = 325241+iDuuck@users.noreply.github.com
