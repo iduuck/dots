@@ -1,0 +1,2 @@
+-T # skip unit tests (using rspec)
+-d postgresql # use postgres
