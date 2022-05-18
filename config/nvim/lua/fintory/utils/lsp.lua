@@ -1,4 +1,5 @@
 local M = {}
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 function M.mappings(bufnr)
   local key_map = vim.api.nvim_buf_set_keymap
@@ -28,9 +29,16 @@ function M.disable_formatting(client)
   client.resolved_capabilities.document_formatting = false
 end
 
-function M.format_on_save(client)
-  if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_command('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
+function M.format_on_save(client, bufnr)
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.formatting({ bufnr = bufnr })
+      end,
+    })
   end
 end
 

@@ -8,7 +8,7 @@ null_ls.setup({
 
   sources = {
     -- Diagnostics
-    null_ls.builtins.diagnostics.rubocop,
+    null_ls.builtins.diagnostics.standardrb,
     null_ls.builtins.diagnostics.stylelint,
 
     -- Formatting
@@ -16,11 +16,12 @@ null_ls.setup({
       filetypes = { 'text', 'sh', 'zsh', 'toml', 'make', 'conf', 'tmux', 'ruby', 'typescriptreact', 'javascriptreact' },
     }),
     null_ls.builtins.formatting.prettierd,
-    null_ls.builtins.formatting.stylelint
+    null_ls.builtins.formatting.stylelint,
+    null_ls.builtins.formatting.standardrb,
   },
 
   on_attach = function (client, bufnr)
-    lsp_utils.format_on_save(client)
+    lsp_utils.format_on_save(client, bufnr)
     lsp_utils.mappings(bufnr)
   end
 })

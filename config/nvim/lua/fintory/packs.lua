@@ -4,7 +4,31 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-return require('packer').startup(function ()
+local present, packer = pcall(require, 'packer')
+
+if not present then
+   print "Cloning packer.."
+   -- remove the dir before cloning
+   vim.fn.system {
+      "git",
+      "clone",
+      "https://github.com/wbthomason/packer.nvim",
+      "--depth",
+      "20",
+      packer_path,
+   }
+
+   vim.cmd "packadd packer.nvim"
+   present, packer = pcall(require, "packer")
+
+   if present then
+      print "Packer cloned successfully."
+   else
+      error("Couldn't clone packer !\nPacker path: " .. packer_path .. "\n" .. packer)
+   end
+end
+
+return packer.startup(function ()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -22,11 +46,18 @@ return require('packer').startup(function ()
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'tpope/vim-dispatch'
-  use 'vim-scripts/tComment'
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
 
   -- Multiple packs for better syntax support.
   use 'tomlion/vim-solidity'
   use 'pangloss/vim-javascript'
+  use 'jparise/vim-graphql'
+  use 'elixir-editors/vim-elixir'
 
   -- Easy launching of tests in ruby and javascript
   -- https://github.com/janko-m/vim-test
@@ -83,6 +114,7 @@ return require('packer').startup(function ()
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    after = "github-nvim-theme",
     config = function()
       require('fintory.packs.lualine')
     end
@@ -99,6 +131,9 @@ return require('packer').startup(function ()
   -- https://github.com/hrsh7th/nvim-cmp
   use {
     'hrsh7th/nvim-cmp',
+    config = function()
+      require('fintory.packs.cmp')
+    end,
     requires = {
       {
         -- Important lua snippets for nvim-cmp
@@ -129,10 +164,10 @@ return require('packer').startup(function ()
 
   -- Tree-shitter playground
   -- https://github.com/nvim-treesitter/playground
-  use {
-    'nvim-treesitter/playground',
-    after = 'nvim-treesitter'
-  }
+  -- use {
+  --   'nvim-treesitter/playground',
+  --   after = 'nvim-treesitter'
+  -- }
 
   -- UI stuff for usage of other packs
   -- https://github.com/nvim-lua/plenary.nvim
@@ -150,28 +185,6 @@ return require('packer').startup(function ()
       end
     },
     {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      after = 'telescope.nvim',
-      run = 'make',
-      config = function()
-        -- Do the plain setup for Telescope
-        require('telescope').setup({
-          defaults = {
-            prompt_prefix = ' ❯ ',
-          },
-          extensions = {
-            fzy = {
-              fuzzy = true,
-              override_generic_sorter = false,
-              override_file_sorter = true,
-            },
-          },
-        })
-
-        require('telescope').load_extension('fzf')
-      end,
-    },
-    {
       'nvim-telescope/telescope-symbols.nvim',
       after = 'telescope.nvim',
       requires = { { 'kyazdani42/nvim-web-devicons' } }
@@ -180,10 +193,9 @@ return require('packer').startup(function ()
 
   use {
     'projekt0n/github-nvim-theme',
-    after = "lualine.nvim",
     config = function()
       require('github-theme').setup({
-        theme_style = 'dimmed'
+        theme_style = 'dark'
       })
     end
   }
