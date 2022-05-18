@@ -37,6 +37,9 @@ o.softtabstop = -1
 g.mapleader = ' '
 g.maplocalleader = ' '
 
+-- Decrease scroll with keyboard
+o.scroll = 10
+
 -- Decrease update time
 o.timeoutlen = 500
 o.updatetime = 200
@@ -64,7 +67,7 @@ o.cursorline = true
 -- Set some definitive file types
 AU.create_augroup({
   { 'BufRead,BufNewFile', '*.md', 'set filetype=markdown' },
-  { 'BufRead,BufNewFile', '*.jb', 'set filetype=ruby' },
+  { 'BufRead,BufNewFile', '*.jb,Podfile,Fastfile,Appfile,Matchfile', 'set filetype=ruby' },
   { 'BufRead,BufNewFile', '*.sol', 'set filetype=solidity' },
   { 'BufRead,BufNewFile', 'aliases.local,zshrc.local,*/zsh/configs/*', 'set filetype=zsh' },
   { 'BufRead,BufNewFile', 'gitconfig.local', 'set filetype=gitconfig' },
