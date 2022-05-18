@@ -11,5 +11,5 @@ _G.Telescope = setmetatable({}, {
     end,
 })
 
-K.n('<C-P>', '<CMD>lua Telescope.find_files({ hidden = true })<CR>')
+K.n('<C-P>', '<CMD>lua Telescope.find_files()<CR>')
 K.n('<leader>gc', '<CMD>lua Telescope.git_branches()<CR>')
