@@ -1,0 +1,66 @@
+# Brew taps first
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-drivers"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "phrase/brewed"
+tap "stripe/stripe-cli"
+tap "superfly/tap"
+tap "thoughtbot/formulae"
+tap "universal-ctags/universal-ctags"
+
+# Install everything needed using brew
+brew "coreutils"
+brew "fd"
+brew "fzf"
+brew "gh"
+brew "git"
+brew "git-flow-avh"
+brew "graphicsmagick"
+brew "hub"
+brew "imagemagick"
+brew "mas"
+brew "neovim", args: ["HEAD"]
+brew "node"
+brew "openssl@3"
+brew "postgresql", restart_service: true
+brew "rcm"
+brew "reattach-to-user-namespace"
+brew "redis", restart_service: true
+brew "ripgrep"
+brew "swiftlint"
+brew "the_silver_searcher"
+brew "tmux"
+brew "universal-ctags", args: ["HEAD"]
+brew "watchman"
+brew "yarn"
+brew "zsh"
+brew "heroku/brew/heroku"
+brew "phrase/brewed/phrase"
+brew "thoughtbot/formulae/parity"
+
+# The casks
+cask "1password"
+cask "brave-browser"
+cask "chromium"
+cask "dash"
+cask "dropbox"
+cask "google-chrome"
+cask "iterm2"
+cask "loom"
+cask "ngrok"
+cask "notion"
+cask "raycast"
+cask "transmit"
+
+# And finally the MAS apps
+mas "Amphetamine", id: 937984704
+mas "Hand Mirror", id: 1502839586
+mas "Kaleidoscope", id: 587512244
+mas "Magnet", id: 441258766
+mas "Pages", id: 409201541
+mas "Slack", id: 803453959
+mas "Things", id: 904280696
+mas "Xcode", id: 497799835
