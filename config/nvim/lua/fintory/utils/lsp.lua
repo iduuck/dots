@@ -25,7 +25,7 @@ function M.mappings(bufnr)
 end
 
 function M.disable_formatting(client)
-  client.resolved_capabilities.document_formatting = false
+  -- client.resolved_capabilities.document_formatting = false
 end
 
 function M.format_on_save(client, bufnr)
