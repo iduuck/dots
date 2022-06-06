@@ -1,20 +1,34 @@
 # ensure dotfiles bin directory is loaded first
 PATH="$HOME/.bin:/usr/local/sbin:$PATH"
 
+UNAME_MACHINE="$(/usr/bin/uname -m)"
+
+if [[ "${UNAME_MACHINE}" == "arm64" ]]
+  then
+    HOMEBREW_PREFIX="/opt/homebrew"
+  else
+    HOMEBREW_PREFIX="/usr/local"
+  fi
+
+# Initialize shellenv for brew
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+
+# Add homebrew bin folder the PATH.
+export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+
 # Try loading ASDF from the regular home dir location
 if [ -f "$HOME/.asdf/asdf.sh" ]; then
  . "$HOME/.asdf/asdf.sh"
 elif which brew >/dev/null &&
- BREW_DIR="$(dirname `which brew`)/.." &&
- [ -f "$BREW_DIR/opt/asdf/asdf.sh" ]; then
- . "$BREW_DIR/opt/asdf/asdf.sh"
+ [ -f "$HOMEBREW_PREFIX/opt/asdf/asdf.sh" ]; then
+ . "$HOMEBREW_PREFIX/opt/asdf/asdf.sh"
 fi
 
 # mkdir .git/safe in the root of repositories you trust
-PATH=".git/safe/../../bin:$PATH"
+export PATH=".git/safe/../../bin:$PATH"
 
 if type "npm" > /dev/null && [ "$FDF_ZSH_CONFIG_PATH_DISABLE_NPM" != true ]; then
-  PATH="$(npm bin -g):$PATH"
+  export PATH="$(npm bin -g):$PATH"
 
   # We don't need the path twice, hence we are disabling this for yarn here.
   # However, you can force enable this when you export the variable with a value
@@ -25,7 +39,7 @@ if type "npm" > /dev/null && [ "$FDF_ZSH_CONFIG_PATH_DISABLE_NPM" != true ]; the
 fi
 
 if type "yarn" > /dev/null && [ "$FDF_ZSH_CONFIG_PATH_DISABLE_YARN" != true ]; then
-  PATH="$(yarn global bin):$PATH"
+  export PATH="$(yarn global bin):$PATH"
 fi
 
 export -U PATH
