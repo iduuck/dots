@@ -12,6 +12,7 @@ tap "thoughtbot/formulae"
 tap "universal-ctags/universal-ctags"
 
 # Install everything needed using brew
+brew "asdf"
 brew "coreutils"
 brew "fd"
 brew "fzf"
