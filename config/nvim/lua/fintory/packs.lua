@@ -57,6 +57,7 @@ return packer.startup(function ()
   use 'tomlion/vim-solidity'
   use 'pangloss/vim-javascript'
   use 'jparise/vim-graphql'
+  use 'pantharshit00/vim-prisma'
   use 'elixir-editors/vim-elixir'
 
   -- Easy launching of tests in ruby and javascript
