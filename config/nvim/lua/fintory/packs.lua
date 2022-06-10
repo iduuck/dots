@@ -58,7 +58,7 @@ return packer.startup(function ()
   use 'pangloss/vim-javascript'
   use 'jparise/vim-graphql'
   use 'pantharshit00/vim-prisma'
-  use 'elixir-editors/vim-elixir'
+  -- use 'elixir-editors/vim-elixir'
 
   -- Easy launching of tests in ruby and javascript
   -- https://github.com/janko-m/vim-test
@@ -135,6 +135,7 @@ return packer.startup(function ()
     config = function()
       require('fintory.packs.cmp')
     end,
+    after = 'lspkind.nvim',
     requires = {
       {
         -- Important lua snippets for nvim-cmp
@@ -176,6 +177,10 @@ return packer.startup(function ()
     after = { 'nvim-treesitter' }
   }
 
+  -- Some new kind of nice looking dropdown for CMP
+  -- https://github.com/onsails/lspkind.nvim
+  use 'onsails/lspkind.nvim'
+
   -- UI stuff for usage of other packs
   -- https://github.com/nvim-lua/plenary.nvim
   use 'nvim-lua/plenary.nvim'
@@ -205,6 +210,25 @@ return packer.startup(function ()
         theme_style = 'dark'
       })
     end
+  }
+
+  -- Displays a popup with possible key bindings of the command you started
+  -- typing
+  -- https://github.com/folke/which-key.nvim
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup { }
+    end
+  }
+
+  -- Escape without getting delay when typing in insert mode
+  -- https://github.com/max397574/better-escape.nvim
+  use {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup()
+    end,
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
