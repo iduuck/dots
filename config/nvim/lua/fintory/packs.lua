@@ -149,6 +149,11 @@ return packer.startup(function ()
     },
   }
 
+  -- Matching the opening and closing brackets not just
+  -- by symbol, but also by language agnostic words
+  -- https://github.com/andymass/vim-matchup
+  use 'andymass/vim-matchup'
+
   -- Lightweight LSP plugin with highly performant UI.
   -- https://github.com/tami5/lspsaga.nvim
   use 'tami5/lspsaga.nvim'
@@ -158,6 +163,7 @@ return packer.startup(function ()
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    after = { 'vim-matchup' },
     config = function()
       require('fintory.packs.treesitter')
     end
@@ -165,10 +171,10 @@ return packer.startup(function ()
 
   -- Tree-shitter playground
   -- https://github.com/nvim-treesitter/playground
-  -- use {
-  --   'nvim-treesitter/playground',
-  --   after = 'nvim-treesitter'
-  -- }
+  use {
+    'nvim-treesitter/playground',
+    after = { 'nvim-treesitter' }
+  }
 
   -- UI stuff for usage of other packs
   -- https://github.com/nvim-lua/plenary.nvim

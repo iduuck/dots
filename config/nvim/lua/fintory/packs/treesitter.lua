@@ -1,5 +1,9 @@
 -- Configure treesitter to ensure some modules installed.
 require'nvim-treesitter.configs'.setup {
+  matchup = {
+    enable = true,
+  },
+
   ensure_installed = {
     "tsx",
     "typescript",
