@@ -10,15 +10,6 @@ _G.Telescope = setmetatable({}, {
 
 require('telescope').setup({
   defaults = {
-    vimgrep_arguments = {
-      "rg",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case",
-    },
     prompt_prefix = "   ",
     selection_caret = "  ",
     entry_prefix = "  ",
@@ -34,8 +25,11 @@ require('telescope').setup({
     mappings = {
       n = { ["q"] = require("telescope.actions").close },
     },
+  },
+  pickers = {
+    find_command = { "rg", "--files" }
   }
 })
 
-K.n('<C-P>', '<CMD>lua Telescope.find_files({ hidden = false })<CR>')
+K.n('<C-P>', '<CMD>lua Telescope.find_files()<CR>')
 K.n('<leader>gc', '<CMD>lua Telescope.git_branches()<CR>')
