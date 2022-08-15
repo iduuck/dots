@@ -170,6 +170,19 @@ return packer.startup(function ()
     end
   }
 
+  -- Tree for file management
+  -- https://github.com/kyazdani42/nvim-tree.lua
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly', -- optional, updated every week. (see issue #1193),
+    config = function()
+      require("nvim-tree").setup()
+    end
+  }
+
   -- Tree-shitter playground
   -- https://github.com/nvim-treesitter/playground
   use {
