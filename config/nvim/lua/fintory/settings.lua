@@ -24,14 +24,23 @@ vim.opt.wildignore:append {
 o.modelines = 0
 o.laststatus = 2
 
--- Better editing experience
+-- Enable smarter indentation
+o.smartindent = true
+
+-- Use spaces instead of tabs
 o.expandtab = true
-o.cindent = true
-o.wrap = true
-o.textwidth = 300
+
+-- Disable cindent
+o.cindent = false
+
+-- Tab to spaces settings
 o.tabstop = 2
 o.shiftwidth = 2
 o.softtabstop = -1
+
+-- Better editing experience
+o.wrap = true
+o.textwidth = 300
 
 -- Set leader to blank space
 g.mapleader = ' '
