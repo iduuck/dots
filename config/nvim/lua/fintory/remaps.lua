@@ -12,6 +12,11 @@ K.n('<Right>', ':echoe "Use l"<CR>')
 K.n('<Up>', ':echoe "Use k"<CR>')
 K.n('<Down>', ':echoe "Use j"<CR>')
 
+-- Simply stay in insert mode
+K.v('>', '>gv')
+K.v('<', '<gv')
+
+-- Keep cursor position when navigating
 K.n('n', 'nzzzv')
 K.n('N', 'Nzzzv')
 K.n('J', 'mzJ`z')
@@ -28,6 +33,14 @@ K.i('>', '><c-g>u')
 K.x('J', ":move '>+1<CR>gv=gv")
 K.x('K', ":move '<-2<CR>gv=gv")
 
+K.n('<C-h>', '<C-w>h')
+K.n('<C-j>', '<C-w>j')
+K.n('<C-k>', '<C-w>k')
+K.n('<C-l>', '<C-w>l')
+
 -- LSP saga code actions
 K.n('<Leader>cca', '<cmd>Lspsaga code_action<CR>')
 K.n('<Leader>crn', '<cmd>Lspsaga rename<CR>')
+
+-- Tree
+K.n('<Leader>ee', '<cmd>NvimTreeToggle<CR>')
