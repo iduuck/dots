@@ -15,13 +15,14 @@ null_ls.setup({
     null_ls.builtins.formatting.trim_whitespace.with({
       filetypes = { 'text', 'sh', 'zsh', 'toml', 'make', 'conf', 'tmux', 'ruby', 'typescriptreact', 'javascriptreact' },
     }),
-    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.prettier.with({
+      prefer_local = "node_modules/.bin",
+    }),
     null_ls.builtins.formatting.stylelint,
     null_ls.builtins.formatting.standardrb,
   },
 
   on_attach = function (client, bufnr)
-    -- lsp_utils.format_on_save(client, bufnr)
     lsp_utils.mappings(bufnr)
   end
 })

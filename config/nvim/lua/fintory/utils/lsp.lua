@@ -22,24 +22,11 @@ function M.mappings(bufnr)
   key_map(bufnr, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
   key_map(bufnr, 'n', '<Space>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({border = "single"})<CR>', opts)
   key_map(bufnr, 'n', '<Space>D', '<cmd>lua toggle_lsp_diagnostics()<CR>', opts)
-  key_map(bufnr, 'n', '<leader>ff', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+  key_map(bufnr, 'n', '<leader>ff', '<cmd>lua vim.lsp.buf.format({ timeout_ms = 2000 })<CR>:w<CR>', opts)
 end
 
 function M.disable_formatting(client)
   -- client.resolved_capabilities.document_formatting = false
-end
-
-function M.format_on_save(client, bufnr)
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 2000 })
-      end,
-    })
-  end
 end
 
 return M
