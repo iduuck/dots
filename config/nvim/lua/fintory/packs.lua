@@ -55,7 +55,6 @@ return packer.startup(function ()
 
   -- Multiple packs for better syntax support.
   use 'tomlion/vim-solidity'
-  use 'pangloss/vim-javascript'
   use 'jparise/vim-graphql'
   use 'pantharshit00/vim-prisma'
   -- use 'elixir-editors/vim-elixir'
@@ -89,6 +88,20 @@ return packer.startup(function ()
     'jose-elias-alvarez/null-ls.nvim',
     config = function()
       require('fintory.packs.null-ls')
+    end
+  }
+
+  -- LSP Installer
+  use {
+    "williamboman/mason.nvim",
+    after = "nvim-lspconfig",
+    requires = { "williamboman/mason-lspconfig.nvim" },
+    config = function()
+      require('mason').setup({
+        ensure_installed = { "typescript-language-server", "eslint-lsp", "lua-language-server" },
+        automatic_installation = true
+      })
+      require('mason-lspconfig').setup()
     end
   }
 
