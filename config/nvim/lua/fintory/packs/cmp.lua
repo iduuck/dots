@@ -16,6 +16,16 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ["<Tab>"] = function(fallback)
+      local ls = require'luasnip'
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif ls.expand_or_jumpable() then
+        ls.expand_or_jump()
+      else
+        fallback()
+      end
+    end
   })
 })
 

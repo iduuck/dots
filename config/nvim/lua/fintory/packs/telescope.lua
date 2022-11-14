@@ -33,3 +33,4 @@ require('telescope').setup({
 
 K.n('<C-P>', '<CMD>lua Telescope.find_files()<CR>')
 K.n('<leader>gc', '<CMD>lua Telescope.git_branches()<CR>')
+K.n('<leader>d', '<CMD>lua Telescope.diagnostics()<CR>')

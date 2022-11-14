@@ -2,6 +2,10 @@ local AU = require('fintory.augroup')
 local g = vim.g
 local o = vim.o
 
+-- Disable netrw, because of `nvim-tree`
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Make colors more accurate in a terminal window
 o.termguicolors = true
 o.background = 'dark'

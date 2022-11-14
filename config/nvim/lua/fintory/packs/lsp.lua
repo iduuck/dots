@@ -34,10 +34,9 @@ cmp.setup {
   }
 }
 
--- For now this is the only lsp server we need. FOR NOW!!
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
+-- For now this is the only lsp server we need. FOR NOW!!
 config.tsserver.setup {
   on_attach = function(client, bufnr)
     lsp_utils.disable_formatting(client)

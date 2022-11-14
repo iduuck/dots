@@ -41,8 +41,6 @@ return packer.startup(function ()
       require('fintory.packs.fugitive')
     end
   }
-  use 'tpope/vim-rails'
-  use 'tpope/vim-rake'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'tpope/vim-dispatch'
@@ -52,6 +50,9 @@ return packer.startup(function ()
       require('Comment').setup()
     end
   }
+
+  -- TSX, JSX Support
+
 
   -- Multiple packs for better syntax support.
   use 'tomlion/vim-solidity'
@@ -128,11 +129,13 @@ return packer.startup(function ()
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    after = "github-nvim-theme",
+    -- after = "github-nvim-theme",
     config = function()
       require('fintory.packs.lualine')
     end
   }
+
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Source for nvim-cmp for supporting LuaSnip
   -- https://github.com/saadparwaiz1/cmp_luasnip
@@ -148,19 +151,18 @@ return packer.startup(function ()
     config = function()
       require('fintory.packs.cmp')
     end,
-    after = 'lspkind.nvim',
-    requires = {
-      {
-        -- Important lua snippets for nvim-cmp
-        -- https://github.com/L3MON4D3/LuaSnip
-        'L3MON4D3/LuaSnip',
-        event = 'CursorHold',
-        config = function()
-          require('fintory.packs.luasnip')
-        end,
-        -- requires = { 'rafamadriz/friendly-snippets' },
-      },
-    },
+    requires = { 'lspkind.nvim', 'luasnip' },
+  }
+
+  -- Important lua snippets for nvim-cmp
+  -- https://github.com/L3MON4D3/LuaSnip
+  use {
+    'L3MON4D3/LuaSnip',
+    event = 'CursorHold',
+    config = function()
+      require('fintory.packs.luasnip')
+    end,
+    requires = { 'rafamadriz/friendly-snippets' },
   }
 
   -- Matching the opening and closing brackets not just
@@ -169,14 +171,14 @@ return packer.startup(function ()
   use 'andymass/vim-matchup'
 
   -- Lightweight LSP plugin with highly performant UI.
-  -- https://github.com/tami5/lspsaga.nvim
-  use 'tami5/lspsaga.nvim'
+  -- https://github.com/glepnir/lspsaga.nvim
+  use 'glepnir/lspsaga.nvim'
 
   -- Tree-shitter for parsing and syntax features.
   -- https://github.com/nvim-treesitter/nvim-treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     after = { 'vim-matchup' },
     config = function()
       require('fintory.packs.treesitter')
@@ -192,7 +194,7 @@ return packer.startup(function ()
     },
     tag = 'nightly', -- optional, updated every week. (see issue #1193),
     config = function()
-      require("nvim-tree").setup()
+      require('fintory.packs.nvim-tree')
     end
   }
 
@@ -210,6 +212,10 @@ return packer.startup(function ()
   -- UI stuff for usage of other packs
   -- https://github.com/nvim-lua/plenary.nvim
   use 'nvim-lua/plenary.nvim'
+
+  -- Icons support for themes
+  -- https://github.com/kyazdani42/nvim-web-devicons
+  use 'kyazdani42/nvim-web-devicons'
 
   -- Telescope implementation
   -- https://github.com/nvim-telescope/telescope.nvim
@@ -229,12 +235,30 @@ return packer.startup(function ()
     }
   })
 
+  -- use {
+  --   'projekt0n/github-nvim-theme',
+  --   config = function()
+  --     require('github-theme').setup({
+  --       theme_style = 'dark'
+  --     })
+  --   end
+  -- }
+
   use {
-    'projekt0n/github-nvim-theme',
+    "catppuccin/nvim",
+    as = "catppuccin",
     config = function()
-      require('github-theme').setup({
-        theme_style = 'dark'
+      vim.g.catppuccin_flavour = "mocha"
+      require("catppuccin").setup({
+        integrations = {
+          treesitter = true,
+          lsp_saga = true,
+          hop = true,
+          mason = true,
+          nvimtree = true
+        }
       })
+      vim.cmd [[colorscheme catppuccin]]
     end
   }
 
@@ -255,6 +279,19 @@ return packer.startup(function ()
     config = function()
       require("better_escape").setup()
     end,
+  }
+
+  use {
+    "ggandor/leap.nvim",
+    config = function()
+      require('leap').add_default_mappings()
+    end
+  }
+
+  -- Schema Store
+  use {
+    "b0o/SchemaStore.nvim",
+    module = "schemastore"
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

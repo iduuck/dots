@@ -6,6 +6,9 @@ K.n('<Leader><CR>', '<cmd>so ~/.config/nvim/init.vim<CR>')
 -- Quick buffer switch
 K.n('<Leader><Leader>', '<C-^>')
 
+-- Paste, without sacrficing the paste-register
+K.x("<Leader>p", "\"_dP")
+
 -- Remap arrow keys for consistent navigation
 K.n('<Left>', ':echoe "Use h"<CR>')
 K.n('<Right>', ':echoe "Use l"<CR>')
@@ -40,6 +43,7 @@ K.n('<C-l>', '<C-w>l')
 
 -- LSP saga code actions
 K.n('<Leader>cca', '<cmd>Lspsaga code_action<CR>')
+K.n('<Leader>cd', '<cmd>Lspsaga show_cursor_diagnostics<CR>')
 K.n('<Leader>crn', '<cmd>Lspsaga rename<CR>')
 
 -- Tree

@@ -20,13 +20,12 @@ function M.mappings(bufnr)
   key_map(bufnr, 'i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   key_map(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
   key_map(bufnr, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
-  key_map(bufnr, 'n', '<Space>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({border = "single"})<CR>', opts)
   key_map(bufnr, 'n', '<Space>D', '<cmd>lua toggle_lsp_diagnostics()<CR>', opts)
   key_map(bufnr, 'n', '<leader>ff', '<cmd>lua vim.lsp.buf.format({ timeout_ms = 2000 })<CR>:w<CR>', opts)
 end
 
 function M.disable_formatting(client)
-  -- client.resolved_capabilities.document_formatting = false
+  client.server_capabilities.documentFormattingProvider = false
 end
 
 return M

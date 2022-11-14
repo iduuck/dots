@@ -10,6 +10,10 @@ null_ls.setup({
     -- Diagnostics
     null_ls.builtins.diagnostics.standardrb,
     null_ls.builtins.diagnostics.stylelint,
+    null_ls.builtins.diagnostics.eslint,
+
+    -- Code Actions
+    -- null_ls.builtins.code_actions.eslint,
 
     -- Formatting
     null_ls.builtins.formatting.trim_whitespace.with({
