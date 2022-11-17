@@ -8,7 +8,6 @@ vim.g.loaded_netrwPlugin = 1
 
 -- Make colors more accurate in a terminal window
 o.termguicolors = true
-o.background = 'dark'
 
 -- Hide '-- INSERT --' line
 vim.cmd('set noshowmode')

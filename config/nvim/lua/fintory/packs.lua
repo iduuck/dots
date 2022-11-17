@@ -137,13 +137,6 @@ return packer.startup(function ()
 
   use "lukas-reineke/indent-blankline.nvim"
 
-  -- Source for nvim-cmp for supporting LuaSnip
-  -- https://github.com/saadparwaiz1/cmp_luasnip
-  use {
-    'saadparwaiz1/cmp_luasnip',
-    after = 'nvim-cmp'
-  }
-
   -- Actual cmp implementation
   -- https://github.com/hrsh7th/nvim-cmp
   use {
@@ -151,18 +144,21 @@ return packer.startup(function ()
     config = function()
       require('fintory.packs.cmp')
     end,
-    requires = { 'lspkind.nvim', 'luasnip' },
+    requires = { 'lspkind.nvim' },
   }
 
-  -- Important lua snippets for nvim-cmp
-  -- https://github.com/L3MON4D3/LuaSnip
+  use 'L3MON4D3/LuaSnip'
+
   use {
-    'L3MON4D3/LuaSnip',
-    event = 'CursorHold',
+    "folke/tokyonight.nvim",
     config = function()
-      require('fintory.packs.luasnip')
-    end,
-    requires = { 'rafamadriz/friendly-snippets' },
+      require("tokyonight").setup({
+        style = "moon",
+        sidebars = { "qf", "packer" },
+      })
+
+      vim.cmd("colorscheme tokyonight")
+    end
   }
 
   -- Matching the opening and closing brackets not just
@@ -234,33 +230,6 @@ return packer.startup(function ()
       requires = { { 'kyazdani42/nvim-web-devicons' } }
     }
   })
-
-  -- use {
-  --   'projekt0n/github-nvim-theme',
-  --   config = function()
-  --     require('github-theme').setup({
-  --       theme_style = 'dark'
-  --     })
-  --   end
-  -- }
-
-  use {
-    "catppuccin/nvim",
-    as = "catppuccin",
-    config = function()
-      vim.g.catppuccin_flavour = "mocha"
-      require("catppuccin").setup({
-        integrations = {
-          treesitter = true,
-          lsp_saga = true,
-          hop = true,
-          mason = true,
-          nvimtree = true
-        }
-      })
-      vim.cmd [[colorscheme catppuccin]]
-    end
-  }
 
   -- Displays a popup with possible key bindings of the command you started
   -- typing

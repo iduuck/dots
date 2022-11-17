@@ -1,28 +1,18 @@
 require('lualine').setup({
   options = {
-    theme = "auto",
+    theme = "tokyonight",
     component_separators = '',
-    section_separators = '',
+    section_separators = { left = '', right = ''},
     icons_enabled = true,
   },
   sections = {
-    lualine_a = {
-      { 'mode', color = { gui = 'bold' } },
-    },
+    lualine_a = { 'mode' },
     lualine_b = {
       { 'branch' },
       { 'diff', colored = false },
     },
-    lualine_c = {
-      { 'filename', file_status = true },
-      { 'diagnostics' },
-    },
-    lualine_x = {
-      'lsp_progress',
-      'filetype',
-      'encoding',
-      'fileformat',
-    },
+    lualine_c = { 'filename', 'diagnostics' },
+    lualine_x = { 'filetype' },
     lualine_y = { 'progress' },
     lualine_z = {
       { 'location', color = { gui = 'bold' } },
