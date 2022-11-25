@@ -38,6 +38,7 @@ brew "universal-ctags", args: ["HEAD"]
 brew "watchman"
 brew "yarn"
 brew "zsh"
+brew "bottom"
 brew "heroku/brew/heroku"
 brew "phrase/brewed/phrase"
 brew "thoughtbot/formulae/parity"
