@@ -44,10 +44,11 @@ return packer.startup(function ()
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'tpope/vim-dispatch'
+  use 'jxnblk/vim-mdx-js'
   use {
     'numToStr/Comment.nvim',
     config = function()
-      require('Comment').setup()
+      require('fintory.packs.comment')
     end
   }
 
@@ -82,6 +83,15 @@ return packer.startup(function ()
   -- Companion for brackets, for endwise.vim
   -- https://github.com/9mm/vim-closer
   -- use '9mm/vim-closer'
+  
+  -- Better find a matching keypair in your buffer.
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2',
+    config = function()
+      require('fintory.packs.hop')
+    end
+  }
 
   -- Inject LSP diagnostics, code actions, etc. into LUA
   -- https://github.com/jose-elias-alvarez/null-ls.nvim
@@ -213,13 +223,20 @@ return packer.startup(function ()
   -- https://github.com/kyazdani42/nvim-web-devicons
   use 'kyazdani42/nvim-web-devicons'
 
+  use {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+  }
+
   -- Telescope implementation
   -- https://github.com/nvim-telescope/telescope.nvim
   use({ 
     {
       'nvim-telescope/telescope.nvim',
       event = 'CursorHold',
-      requires = { { 'nvim-lua/plenary.nvim' } },
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'JoosepAlviste/nvim-ts-context-commentstring'
+      },
       config = function()
         require('fintory.packs.telescope')
       end
@@ -228,7 +245,7 @@ return packer.startup(function ()
       'nvim-telescope/telescope-symbols.nvim',
       after = 'telescope.nvim',
       requires = { { 'kyazdani42/nvim-web-devicons' } }
-    }
+    },
   })
 
   -- Displays a popup with possible key bindings of the command you started
