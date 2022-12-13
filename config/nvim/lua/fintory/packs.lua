@@ -32,6 +32,12 @@ return packer.startup(function ()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- tmux and neovim support
+  use({
+    "aserowy/tmux.nvim",
+    config = function() require("tmux").setup() end
+  })
+
   -- Basic plugins without need of 
   use 'tpope/vim-bundler'
   use 'tpope/vim-eunuch'
