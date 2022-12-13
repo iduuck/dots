@@ -23,6 +23,7 @@
   ff = only
 [commit]
   template = ~/.gitmessage
+	gpgsign = true
 [fetch]
   prune = true
 [rebase]
@@ -33,3 +34,9 @@
   colorMoved = zebra
 [hub]
 	protocol = ssh
+[user]
+	name = Nick Schmidt
+	email = nick@fintory.com
+	signingkey = BD3330048DEE8FFE9A15C9B524B6B7843E4401C6
+[gpg]
+	program = /usr/local/MacGPG2/bin/gpg2
