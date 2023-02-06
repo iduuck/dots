@@ -37,6 +37,6 @@
 [user]
 	name = Nick Schmidt
 	email = nick@fintory.com
-	signingkey = BD3330048DEE8FFE9A15C9B524B6B7843E4401C6
+	signingkey = CF785F15435BCFDC
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg2
