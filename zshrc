@@ -43,8 +43,3 @@ _load_settings "$HOME/.zsh/configs"
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# pnpm
-export PNPM_HOME="/Users/nick/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
