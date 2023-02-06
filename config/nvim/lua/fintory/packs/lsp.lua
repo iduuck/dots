@@ -7,11 +7,7 @@ vim.o.completeopt = "menuone,noselect"
 vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
 
 -- Setup: LSP Saga
-lspsaga.init_lsp_saga({
-  code_action_lightbulb = {
-    cache_code_action = false,
-  },
-})
+lspsaga.setup({})
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
