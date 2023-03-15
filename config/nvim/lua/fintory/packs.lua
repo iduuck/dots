@@ -166,14 +166,15 @@ return packer.startup(function ()
   use 'L3MON4D3/LuaSnip'
 
   use {
-    "folke/tokyonight.nvim",
+    "ellisonleao/gruvbox.nvim",
     config = function()
-      require("tokyonight").setup({
-        style = "moon",
-        sidebars = { "qf", "packer" },
+      require("gruvbox").setup({
+        invert_selection = true,
+        italic = true,
       })
 
-      vim.cmd("colorscheme tokyonight")
+      vim.o.background = "dark"
+      vim.cmd([[colorscheme gruvbox]])
     end
   }
 
