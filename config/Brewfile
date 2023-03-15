@@ -44,25 +44,16 @@ brew "phrase/brewed/phrase"
 brew "thoughtbot/formulae/parity"
 
 # The casks
-cask "1password"
 cask "brave-browser"
 cask "chromium"
-cask "dash"
 cask "dropbox"
 cask "google-chrome"
 cask "iterm2"
-cask "loom"
 cask "ngrok"
 cask "notion"
 cask "raycast"
-cask "transmit"
 
 # And finally the MAS apps
-mas "Amphetamine", id: 937984704
-mas "Hand Mirror", id: 1502839586
-mas "Kaleidoscope", id: 587512244
 mas "Magnet", id: 441258766
-mas "Pages", id: 409201541
 mas "Slack", id: 803453959
-mas "Things", id: 904280696
 mas "Xcode", id: 497799835
