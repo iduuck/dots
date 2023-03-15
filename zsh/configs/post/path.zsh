@@ -20,8 +20,8 @@ export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 if [ -f "$HOME/.asdf/asdf.sh" ]; then
  . "$HOME/.asdf/asdf.sh"
 elif which brew >/dev/null &&
- [ -f "$HOMEBREW_PREFIX/opt/asdf/asdf.sh" ]; then
- . "$HOMEBREW_PREFIX/opt/asdf/asdf.sh"
+ [ -f "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh" ]; then
+ . "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
 fi
 
 # mkdir .git/safe in the root of repositories you trust
