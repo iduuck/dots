@@ -32,6 +32,9 @@ return packer.startup(function ()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- Notify app
+  use "rcarriga/nvim-notify"
+
   -- tmux and neovim support
   use({
     "aserowy/tmux.nvim",
@@ -57,9 +60,6 @@ return packer.startup(function ()
       require('fintory.packs.comment')
     end
   }
-
-  -- TSX, JSX Support
-
 
   -- Multiple packs for better syntax support.
   use 'tomlion/vim-solidity'
@@ -99,15 +99,6 @@ return packer.startup(function ()
     end
   }
 
-  -- Inject LSP diagnostics, code actions, etc. into LUA
-  -- https://github.com/jose-elias-alvarez/null-ls.nvim
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    config = function()
-      require('fintory.packs.null-ls')
-    end
-  }
-
   -- LSP Installer
   use {
     "williamboman/mason.nvim",
@@ -139,6 +130,8 @@ return packer.startup(function ()
       }
     }
   }
+
+  use "lukas-reineke/lsp-format.nvim"
 
   -- LUA alternative to lightline.vim
   -- https://github.com/nvim-lualine/lualine.nvim
