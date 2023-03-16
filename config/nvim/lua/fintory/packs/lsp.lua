@@ -1,5 +1,4 @@
 local lspsaga = require('lspsaga')
-local config = require('lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local lsp_format = require('lsp-format')
 
@@ -68,6 +67,8 @@ end
 local servers = {
   'tsserver',
   'eslint',
+  'jsonls',
+  'lua_ls'
 }
 
 -- Setup each server

@@ -1,34 +1,35 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path })
 end
 
 local present, packer = pcall(require, 'packer')
 
 if not present then
-   print "Cloning packer.."
-   -- remove the dir before cloning
-   vim.fn.system {
-      "git",
-      "clone",
-      "https://github.com/wbthomason/packer.nvim",
-      "--depth",
-      "20",
-      packer_path,
-   }
+  print "Cloning packer.."
+  -- remove the dir before cloning
+  vim.fn.system {
+    "git",
+    "clone",
+    "https://github.com/wbthomason/packer.nvim",
+    "--depth",
+    "20",
+    packer_path,
+  }
 
-   vim.cmd "packadd packer.nvim"
-   present, packer = pcall(require, "packer")
+  vim.cmd "packadd packer.nvim"
+  present, packer = pcall(require, "packer")
 
-   if present then
-      print "Packer cloned successfully."
-   else
-      error("Couldn't clone packer !\nPacker path: " .. packer_path .. "\n" .. packer)
-   end
+  if present then
+    print "Packer cloned successfully."
+  else
+    error("Couldn't clone packer !\nPacker path: " .. packer_path .. "\n" .. packer)
+  end
 end
 
-return packer.startup(function ()
+return packer.startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -41,7 +42,7 @@ return packer.startup(function ()
     config = function() require("tmux").setup() end
   })
 
-  -- Basic plugins without need of 
+  -- Basic plugins without need of
   use 'tpope/vim-bundler'
   use 'tpope/vim-eunuch'
   use {
@@ -89,7 +90,7 @@ return packer.startup(function ()
   -- Companion for brackets, for endwise.vim
   -- https://github.com/9mm/vim-closer
   -- use '9mm/vim-closer'
-  
+
   -- Better find a matching keypair in your buffer.
   use {
     'phaazon/hop.nvim',
@@ -198,7 +199,7 @@ return packer.startup(function ()
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icons
     },
-    tag = 'nightly', -- optional, updated every week. (see issue #1193),
+    tag = 'nightly',                  -- optional, updated every week. (see issue #1193),
     config = function()
       require('fintory.packs.nvim-tree')
     end
@@ -229,7 +230,7 @@ return packer.startup(function ()
 
   -- Telescope implementation
   -- https://github.com/nvim-telescope/telescope.nvim
-  use({ 
+  use({
     {
       'nvim-telescope/telescope.nvim',
       event = 'CursorHold',
@@ -254,7 +255,7 @@ return packer.startup(function ()
   use {
     "folke/which-key.nvim",
     config = function()
-      require("which-key").setup { }
+      require("which-key").setup {}
     end
   }
 

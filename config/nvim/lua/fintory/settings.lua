@@ -14,13 +14,13 @@ vim.cmd('set noshowmode')
 
 -- Ignore some files
 vim.opt.wildignore:append {
-    '.DS_Store',
-    '*_build/*',
-    '**/coverage/*',
-    '**/node_modules/**/*',
-    './node_modules/**/*',
-    '**/.git/*',
-    '**/.next/*'
+  '.DS_Store',
+  '*_build/*',
+  '**/coverage/*',
+  '**/node_modules/**/*',
+  './node_modules/**/*',
+  '**/.git/*',
+  '**/.next/*'
 }
 
 -- Hide mode lines,but always show status line
@@ -78,10 +78,10 @@ o.cursorline = true
 
 -- Set some definitive file types
 AU.create_augroup({
-  { 'BufRead,BufNewFile', '*.md', 'set filetype=markdown' },
-  { 'BufRead,BufNewFile', '*.jb,Podfile,Fastfile,Appfile,Matchfile', 'set filetype=ruby' },
-  { 'BufRead,BufNewFile', '*.sol', 'set filetype=solidity' },
+  { 'BufRead,BufNewFile', '*.md',                                      'set filetype=markdown' },
+  { 'BufRead,BufNewFile', '*.jb,Podfile,Fastfile,Appfile,Matchfile',   'set filetype=ruby' },
+  { 'BufRead,BufNewFile', '*.sol',                                     'set filetype=solidity' },
   { 'BufRead,BufNewFile', 'aliases.local,zshrc.local,*/zsh/configs/*', 'set filetype=zsh' },
-  { 'BufRead,BufNewFile', 'gitconfig.local', 'set filetype=gitconfig' },
-  { 'BufRead,BufNewFile', 'tmux.conf.local', 'set filetype=tmux' }
+  { 'BufRead,BufNewFile', 'gitconfig.local',                           'set filetype=gitconfig' },
+  { 'BufRead,BufNewFile', 'tmux.conf.local',                           'set filetype=tmux' }
 }, 'vimrcEx')

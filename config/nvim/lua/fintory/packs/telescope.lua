@@ -3,9 +3,9 @@ local K = require('fintory.keymap')
 -- This block is to expose the `Telescope` block into the lua world. And to be
 -- used int he following keymaps
 _G.Telescope = setmetatable({}, {
-    __index = function(_, k)
-        return require('telescope.builtin')[k]
-    end,
+  __index = function(_, k)
+    return require('telescope.builtin')[k]
+  end,
 })
 
 require('telescope').setup({

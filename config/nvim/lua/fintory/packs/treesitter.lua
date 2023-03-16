@@ -1,5 +1,5 @@
 -- Configure treesitter to ensure some modules installed.
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   rainbow = {
     enable = true,
     disable = { "html" },
