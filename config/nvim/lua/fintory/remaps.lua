@@ -1,50 +1,51 @@
-local K = require('fintory.keymap')
-
 -- Reload configuration
-K.n('<Leader><CR>', '<cmd>so ~/.config/nvim/init.vim<CR>')
+vim.keymap.set("n", '<Leader><CR>', '<cmd>so ~/.config/nvim/init.vim<CR>')
 
 -- Quick buffer switch
-K.n('<Leader><Leader>', '<C-^>')
+vim.keymap.set("n", '<Leader><Leader>', '<C-^>')
 
 -- Paste, without sacrficing the paste-register
-K.x("<Leader>p", "\"_dP")
+vim.keymap.set("x", "<Leader>p", "\"_dP")
 
 -- Remap arrow keys for consistent navigation
-K.n('<Left>', ':echoe "Use h"<CR>')
-K.n('<Right>', ':echoe "Use l"<CR>')
-K.n('<Up>', ':echoe "Use k"<CR>')
-K.n('<Down>', ':echoe "Use j"<CR>')
+vim.keymap.set("n", '<Left>', ':echoe "Use h"<CR>')
+vim.keymap.set("n", '<Right>', ':echoe "Use l"<CR>')
+vim.keymap.set("n", '<Up>', ':echoe "Use k"<CR>')
+vim.keymap.set("n", '<Down>', ':echoe "Use j"<CR>')
 
 -- Simply stay in insert mode
-K.v('>', '>gv')
-K.v('<', '<gv')
+vim.keymap.set("v", '>', '>gv')
+vim.keymap.set("v", '<', '<gv')
 
 -- Keep cursor position when navigating
-K.n('n', 'nzzzv')
-K.n('N', 'Nzzzv')
-K.n('J', 'mzJ`z')
+vim.keymap.set("n", 'n', 'nzzzv')
+vim.keymap.set("n", 'N', 'Nzzzv')
+vim.keymap.set("n", 'J', 'mzJ`z')
 
 -- Have more granular break points for undo's
-K.i(',', ',<c-g>u')
-K.i('.', '.<c-g>u')
-K.i('!', '!<c-g>u')
-K.i('?', '?<c-g>u')
-K.i('>', '><c-g>u')
+vim.keymap.set("i", ',', ',<c-g>u')
+vim.keymap.set("i", '.', '.<c-g>u')
+vim.keymap.set("i", '!', '!<c-g>u')
+vim.keymap.set("i", '?', '?<c-g>u')
+vim.keymap.set("i", '>', '><c-g>u')
 
 -- Easy moving of lines in visual mode
 -- First, move the line, and then apply indentation, and apply visual selection.
-K.x('J', ":move '>+1<CR>gv=gv")
-K.x('K', ":move '<-2<CR>gv=gv")
+vim.keymap.set("x", 'J', ":move '>+1<CR>gv=gv")
+vim.keymap.set("x", 'K', ":move '<-2<CR>gv=gv")
 
-K.n('<C-h>', '<C-w>h')
-K.n('<C-j>', '<C-w>j')
-K.n('<C-k>', '<C-w>k')
-K.n('<C-l>', '<C-w>l')
+vim.keymap.set("n", '<C-h>', '<C-w>h')
+vim.keymap.set("n", '<C-j>', '<C-w>j')
+vim.keymap.set("n", '<C-k>', '<C-w>k')
+vim.keymap.set("n", '<C-l>', '<C-w>l')
 
 -- LSP saga code actions
-K.n('<Leader>cca', '<cmd>Lspsaga code_action<CR>')
-K.n('<Leader>cd', '<cmd>Lspsaga show_cursor_diagnostics<CR>')
-K.n('<Leader>crn', '<cmd>Lspsaga rename<CR>')
+vim.keymap.set("n", '<Leader>cca', '<cmd>Lspsaga code_action<CR>')
+vim.keymap.set("n", '<Leader>cd', '<cmd>Lspsaga show_cursor_diagnostics<CR>')
+vim.keymap.set("n", '<Leader>crn', '<cmd>Lspsaga rename<CR>')
 
 -- Tree
-K.n('<Leader>ee', '<cmd>NvimTreeToggle<CR>')
+vim.keymap.set("n", '<Leader>ee', '<cmd>NvimTreeToggle<CR>')
+
+-- Copy to clipboard
+vim.keymap.set("v", "<leader>y", '"+y')

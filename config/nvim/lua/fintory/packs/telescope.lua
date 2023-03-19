@@ -1,5 +1,3 @@
-local K = require('fintory.keymap')
-
 -- This block is to expose the `Telescope` block into the lua world. And to be
 -- used int he following keymaps
 _G.Telescope = setmetatable({}, {
@@ -38,9 +36,9 @@ return {
       }
     })
 
-    K.n('\\', '<CMD>lua Telescope.live_grep()<CR>')
-    K.n('<C-P>', '<CMD>lua Telescope.find_files()<CR>')
-    K.n('<leader>gc', '<CMD>lua Telescope.git_branches()<CR>')
-    K.n('<leader>d', '<CMD>lua Telescope.diagnostics()<CR>')
+    vim.keymap.set('n', '\\', '<CMD>lua Telescope.live_grep()<CR>')
+    vim.keymap.set('n', '<C-P>', '<CMD>lua Telescope.find_files()<CR>')
+    vim.keymap.set('n', '<leader>gc', '<CMD>lua Telescope.git_branches()<CR>')
+    vim.keymap.set('n', '<leader>d', '<CMD>lua Telescope.diagnostics()<CR>')
   end
 }
