@@ -1,0 +1,126 @@
+
+chdir(/opt/homebrew/share/vim)
+fchdir() to previous dir
+could not source "$VIM/vimrc"
+chdir(/opt/homebrew/share/vim/vim90)
+fchdir() to previous dir
+could not source "$VIMRUNTIME/macmap.vim"
+chdir(/Users/nick)
+fchdir() to previous dir
+sourcing "$HOME/.vimrc"
+chdir(/Users/nick)
+fchdir() to previous dir
+line 13: sourcing "/Users/nick/.vimrc.bundles"
+chdir(/Users/nick/.vim/autoload)
+fchdir() to previous dir
+line 9: sourcing "/Users/nick/.vim/autoload/plug.vim"
+finished sourcing /Users/nick/.vim/autoload/plug.vim
+continuing in /Users/nick/.vimrc.bundles
+chdir(/opt/homebrew/share/vim/vim90)
+fchdir() to previous dir
+line 83: sourcing "/opt/homebrew/share/vim/vim90/filetype.vim"
+not found in 'runtimepath': "ftdetect/*.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/filetype.vim
+continuing in plug#end
+chdir(/opt/homebrew/share/vim/vim90)
+fchdir() to previous dir
+line 83: sourcing "/opt/homebrew/share/vim/vim90/ftplugin.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/ftplugin.vim
+continuing in plug#end
+chdir(/opt/homebrew/share/vim/vim90)
+fchdir() to previous dir
+line 83: sourcing "/opt/homebrew/share/vim/vim90/indent.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/indent.vim
+continuing in plug#end
+chdir(/opt/homebrew/share/vim/vim90/syntax)
+fchdir() to previous dir
+line 86: sourcing "/opt/homebrew/share/vim/vim90/syntax/syntax.vim"
+chdir(/opt/homebrew/share/vim/vim90/syntax)
+fchdir() to previous dir
+line 19: sourcing "/opt/homebrew/share/vim/vim90/syntax/synload.vim"
+chdir(/opt/homebrew/share/vim/vim90/syntax)
+fchdir() to previous dir
+line 21: sourcing "/opt/homebrew/share/vim/vim90/syntax/syncolor.vim"
+chdir(/opt/homebrew/share/vim/vim90/colors/lists)
+fchdir() to previous dir
+line 36: sourcing "/opt/homebrew/share/vim/vim90/colors/lists/default.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/colors/lists/default.vim
+continuing in /opt/homebrew/share/vim/vim90/syntax/syncolor.vim
+finished sourcing /opt/homebrew/share/vim/vim90/syntax/syncolor.vim
+continuing in /opt/homebrew/share/vim/vim90/syntax/synload.vim
+finished sourcing /opt/homebrew/share/vim/vim90/syntax/synload.vim
+continuing in /opt/homebrew/share/vim/vim90/syntax/syntax.vim
+Executing FileType Autocommands for "*"
+autocommand 0verbose exe "set syntax=" . expand("<amatch>")
+
+finished sourcing /opt/homebrew/share/vim/vim90/syntax/syntax.vim
+continuing in plug#end
+finished sourcing /Users/nick/.vimrc.bundles
+continuing in /Users/nick/.vimrc
+finished sourcing $HOME/.vimrc
+not found in 'packpath': "pack/*/start/*"
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/getscriptPlugin.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/getscriptPlugin.vim
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/gzip.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/gzip.vim
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/logiPat.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/logiPat.vim
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/manpager.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/manpager.vim
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/matchparen.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/matchparen.vim
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/netrwPlugin.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/netrwPlugin.vim
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/rrhelper.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/rrhelper.vim
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/spellfile.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/spellfile.vim
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/tarPlugin.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/tarPlugin.vim
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/tohtml.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/tohtml.vim
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/vimballPlugin.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/vimballPlugin.vim
+chdir(/opt/homebrew/share/vim/vim90/plugin)
+fchdir() to previous dir
+sourcing "/opt/homebrew/share/vim/vim90/plugin/zipPlugin.vim"
+finished sourcing /opt/homebrew/share/vim/vim90/plugin/zipPlugin.vim
+not found in 'packpath': "pack/*/start/*"
+not found in 'runtimepath': "plugin/**/*.vim"
+Reading viminfo file "/Users/nick/.viminfo" info oldfiles
+Executing BufWinEnter Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+Executing BufEnter Autocommands for "*"
+autocommand sil call s:LocalBrowse(expand("<amatch>"))
+
+Executing VimEnter Autocommands for "*"
+autocommand sil call s:VimEnter(expand("<amatch>"))
+
+Executing CursorMoved Autocommands for "*"
+autocommand call s:Highlight_Matching_Pair()
+
+
+Writing viminfo file "/Users/nick/.viminfo"

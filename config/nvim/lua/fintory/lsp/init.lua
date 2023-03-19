@@ -1,9 +1,30 @@
-local lspsaga = require('lspsaga')
-local cmp_nvim_lsp = require('cmp_nvim_lsp')
-local lsp_format = require('lsp-format')
+local lspsaga_ok, lspsaga = pcall(require, 'lspsaga')
+local comp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+local format_ok, lsp_format = pcall(require, 'lsp-format')
+
+local mason_ok, mason = pcall(require, 'mason')
+local mason_lsp_ok, mason_lsp = pcall(require, 'mason-lspconfig')
 
 vim.o.completeopt = "menuone,noselect"
 vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+if not (format_ok and lspsaga_ok) then
+  require('notify')("LSP could not be loaded.")
+  return
+end
+
+if not (comp_ok) then
+  require('notify')("Cmp could not be loaded.")
+  return
+end
+
+if not (mason_ok and mason_lsp_ok) then
+  require('notify')("Mason could not be loaded.")
+  return
+end
+
+mason.setup()
+mason_lsp.setup()
 
 require("lsp-format").setup {}
 
@@ -68,14 +89,15 @@ local servers = {
   'tsserver',
   'eslint',
   'jsonls',
-  'lua_ls'
+  'lua_ls',
+  'tailwindcss'
 }
 
 -- Setup each server
 for _, s in pairs(servers) do
-  local server_config_ok, mod = pcall(require, "fintory.servers." .. s)
+  local server_config_ok, mod = pcall(require, "fintory.lsp.servers." .. s)
   if not server_config_ok then
-    require("notify")("The config " .. s .. " does exist.", "warn")
+    require("notify")("The config " .. s .. " does not exist.", "warn")
   else
     mod.setup(on_attach, capabilities)
   end
