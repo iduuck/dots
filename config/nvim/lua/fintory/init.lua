@@ -14,11 +14,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
-require("lazy").setup("fintory.packs", {
-  change_detection = {
-    enabled = true,
-    notify = true,
-  }
-})
+require("lazy").setup("fintory.packs", {})
 
 require('fintory.lsp')
