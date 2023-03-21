@@ -1,7 +1,13 @@
+local u = require('fintory.utils')
+
+-- We are using `pcall` here, so that the first installation of of the plugins
+-- is not failing the neovim start up.
+--
+-- After first startup, everything will be installed.
+--
 local lspsaga_ok, lspsaga = pcall(require, 'lspsaga')
 local comp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 local format_ok, lsp_format = pcall(require, 'lsp-format')
-
 local mason_ok, mason = pcall(require, 'mason')
 local mason_lsp_ok, mason_lsp = pcall(require, 'mason-lspconfig')
 
@@ -51,7 +57,7 @@ local on_attach = function(client, bufnr)
   client.server_capabilities.documentFormattingProvider = true
 
   -- Formatting for Typescript should be handled by eslint
-  if (client.name ~= "tsserver") then
+  if (u.has_value({ 'eslint' }, client.name)) then
     lsp_format.on_attach(client)
   end
 
