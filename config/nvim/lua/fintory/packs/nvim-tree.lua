@@ -2,6 +2,7 @@ return {
   'kyazdani42/nvim-tree.lua',
   dependencies = {
     'kyazdani42/nvim-web-devicons',
+    'projekt0n/circles.nvim',
   },
   config = function()
     require("nvim-tree").setup {
@@ -11,30 +12,7 @@ return {
             folder_arrow = false,
             git = false,
           },
-          glyphs = {
-            default = "",
-            symlink = "",
-            bookmark = "",
-            folder = {
-              arrow_closed = "",
-              arrow_open = "",
-              default = "",
-              open = "",
-              empty = "",
-              empty_open = "",
-              symlink = "",
-              symlink_open = "",
-            },
-            git = {
-              unstaged = "✗",
-              staged = "✓",
-              unmerged = "",
-              renamed = "➜",
-              untracked = "★",
-              deleted = "",
-              ignored = "◌",
-            },
-          },
+          glyphs = require('circles').get_nvimtree_glyphs(),
         },
       }
     }
