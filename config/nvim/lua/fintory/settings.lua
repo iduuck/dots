@@ -2,6 +2,8 @@ local AU = require('fintory.augroup')
 local g = vim.g
 local o = vim.o
 
+vim.lsp.set_log_level("off")
+
 -- Disable netrw, because of `nvim-tree`
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
