@@ -11,7 +11,6 @@ return {
   { "lukas-reineke/indent-blankline.nvim" },
   { "djoshea/vim-autoread" },
   { 'andymass/vim-matchup' },
-  { "AndrewRadev/tagalong.vim" },
   { 'JoosepAlviste/nvim-ts-context-commentstring' },
   { 'L3MON4D3/LuaSnip' },
 
