@@ -11,10 +11,10 @@ return {
         end,
       },
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
+        { name = "nvim_lsp", priority = 10 },
+        { name = "path", priority = 8 },
+        { name = "buffer", priority = 6 },
         { name = "vsnip" },
-        { name = "buffer" },
-        { name = "path" },
       }),
       formatting = {
         format = lspkind.cmp_format({

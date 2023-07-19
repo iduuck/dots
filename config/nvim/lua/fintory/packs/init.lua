@@ -6,6 +6,11 @@ return {
   { 'tpope/vim-surround' },
   { 'tpope/vim-dispatch' },
 
+  -- Git integration
+  { 'lewis6991/gitsigns.nvim' },
+  -- For neogit configuration, see the neogit.lua file.
+  -- { 'TimUntersberger/neogit' },
+
   -- Utils
   { "rcarriga/nvim-notify" },
   { "lukas-reineke/indent-blankline.nvim" },
@@ -15,7 +20,7 @@ return {
   { 'L3MON4D3/LuaSnip' },
 
   -- LSP things
-  { "williamboman/mason.nvim" },
+  { "williamboman/mason.nvim",                    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonLog" } },
   { "williamboman/mason-lspconfig.nvim" },
   { "lukas-reineke/lsp-format.nvim" },
   { 'glepnir/lspsaga.nvim' },
@@ -34,5 +39,4 @@ return {
 
   -- UI
   { 'nvim-lua/plenary.nvim' },
-  { 'kyazdani42/nvim-web-devicons' },
 }
