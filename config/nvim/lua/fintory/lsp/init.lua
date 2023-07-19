@@ -10,6 +10,21 @@ local comp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 local format_ok, lsp_format = pcall(require, 'lsp-format')
 local mason_ok, mason = pcall(require, 'mason')
 local mason_lsp_ok, mason_lsp = pcall(require, 'mason-lspconfig')
+local trouble_ok, trouble = pcall(require, 'trouble')
+
+local servers = {
+  'tsserver',
+  'eslint',
+  'jsonls',
+  'lua_ls',
+  'tailwindcss'
+}
+
+local servers_with_formatting = {
+  'lua_ls',
+  'eslint',
+  'jsonls',
+}
 
 vim.o.completeopt = "menuone,noselect"
 vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
@@ -55,9 +70,10 @@ local on_attach = function(client, bufnr)
 
   -- This will set up formatting for the attached LSPs
   client.server_capabilities.documentFormattingProvider = true
+  client.server_capabilities.semanticTokensProvider = nil
 
   -- Formatting for Typescript should be handled by eslint
-  if (u.has_value({ 'eslint' }, client.name)) then
+  if (u.has_value(servers_with_formatting, client.name)) then
     lsp_format.on_attach(client)
   end
 
@@ -91,14 +107,6 @@ local on_attach = function(client, bufnr)
   end)
 end
 
-local servers = {
-  'tsserver',
-  'eslint',
-  'jsonls',
-  'lua_ls',
-  'tailwindcss'
-}
-
 -- Setup each server
 for _, s in pairs(servers) do
   local server_config_ok, mod = pcall(require, "fintory.lsp.servers." .. s)
@@ -109,15 +117,25 @@ for _, s in pairs(servers) do
   end
 end
 
--- Global diagnostic settings
-vim.diagnostic.config({
-  virtual_text = true,
-  severity_sort = true,
-  update_in_insert = false,
-  float = {
-    header = "",
-    source = "always",
-    border = "solid",
-    focusable = true,
-  },
-})
+if trouble_ok then
+  trouble.setup {}
+
+  vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+    {silent = true, noremap = true}
+  )
+  vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+    {silent = true, noremap = true}
+  )
+  vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+    {silent = true, noremap = true}
+  )
+  vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+    {silent = true, noremap = true}
+  )
+  vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+    {silent = true, noremap = true}
+  )
+  vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+    {silent = true, noremap = true}
+  )
+end
