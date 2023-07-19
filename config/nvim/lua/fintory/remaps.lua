@@ -44,8 +44,5 @@ vim.keymap.set("n", '<Leader>cca', '<cmd>Lspsaga code_action<CR>')
 vim.keymap.set("n", '<Leader>cd', '<cmd>Lspsaga show_cursor_diagnostics<CR>')
 vim.keymap.set("n", '<Leader>crn', '<cmd>Lspsaga rename<CR>')
 
--- Tree
-vim.keymap.set("n", '<Leader>ee', '<cmd>NvimTreeToggle<CR>')
-
 -- Copy to clipboard
 vim.keymap.set("v", "<leader>y", '"+y')
