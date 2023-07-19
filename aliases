@@ -6,6 +6,9 @@ alias e="$EDITOR"
 alias v="$VISUAL"
 alias cc="clear"
 
+# PNPM alias
+alias pn="pnpm"
+
 # Git
 alias gm="git commit"
 alias gr="git pull --rebase"
