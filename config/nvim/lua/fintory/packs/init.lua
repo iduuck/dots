@@ -31,6 +31,7 @@ return {
   { 'tomlion/vim-solidity' },
   { 'jparise/vim-graphql' },
   { 'pantharshit00/vim-prisma' },
+  { 'github/copilot.vim' },
 
   -- UI
   { 'nvim-lua/plenary.nvim' },

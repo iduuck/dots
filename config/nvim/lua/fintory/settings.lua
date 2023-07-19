@@ -8,6 +8,18 @@ vim.lsp.set_log_level("off")
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.g.copilot_filetypes = {
+  ['*'] = false,
+  ['TelescopePrompt'] = false,
+  ['javascript'] = true,
+  ['typescript'] = true,
+  ['javascriptreact'] = true,
+  ['typescriptreact'] = true,
+  ['vue'] = true,
+  ['lua'] = true,
+  ['html'] = true,
+}
+
 -- Make colors more accurate in a terminal window
 o.termguicolors = true
 
