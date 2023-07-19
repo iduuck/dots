@@ -47,3 +47,8 @@ _load_settings "$HOME/.zsh/configs"
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach -t default || tmux new -s default
 fi
+
+# pnpm
+export PNPM_HOME="/Users/nick/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
