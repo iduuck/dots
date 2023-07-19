@@ -1,12 +1,16 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'kyazdani42/nvim-web-devicons' },
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     require('lualine').setup({
       options = {
         component_separators = '',
         section_separators = { left = '', right = '' },
         icons_enabled = true,
+        disabled_filetypes = {
+          'neo-tree',
+          'NeogitStatus',
+        }
       },
       sections = {
         lualine_a = { 'mode' },
