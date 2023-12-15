@@ -28,7 +28,7 @@ fi
 export PATH=".git/safe/../../bin:$PATH"
 
 if type "npm" > /dev/null && [ "$FDF_ZSH_CONFIG_PATH_DISABLE_NPM" != true ]; then
-  export PATH="$(npm bin -g):$PATH"
+  export PATH="$(npm root -g)/bin:$PATH"
 
   # We don't need the path twice, hence we are disabling this for yarn here.
   # However, you can force enable this when you export the variable with a value

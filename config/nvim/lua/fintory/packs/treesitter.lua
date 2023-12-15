@@ -1,43 +1,65 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-    "p00f/nvim-ts-rainbow",
+  {
     "nvim-treesitter/playground",
-    "windwp/nvim-ts-autotag",
+    cmd = "TSPlaygroundToggle",
   },
-  config = function()
-    -- Configure treesitter to ensure some modules installed.
-    require('nvim-treesitter.configs').setup {
-      rainbow = {
-        enable = true,
-        disable = { "jsx", "tsx", "html" },
-      },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   event = "BufReadPre",
+  --   enabled = true,
+  --   opts = { mode = "topline", multiline_threshold = 5 },
+  -- },
+  {
+    "windpw/nvim-ts-autotag",
+    lazy = false,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      'RRethy/nvim-treesitter-endwise',
+    },
+    main = 'nvim-treesitter.configs',
+    opts = {
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
       },
+
       context_commentstring = {
         enable = true,
         enable_autocmd = false,
       },
-      autotag = { enable = true },
-      matchup = { enable = true },
+
+      endwise = { enable = true },
+
+      autotag = {
+        enable = true,
+        enable_close_on_slash = false,
+      },
+
       indent = { enable = true },
 
       ensure_installed = {
         "tsx",
         "typescript",
-        "comment",
         "sql",
         "css",
         "html",
+        "python",
         "javascript",
         "json",
         "ruby",
-        "yaml"
+        "yaml",
+        "toml",
       },
 
       sync_install = true,
     }
-  end
+  }
 }

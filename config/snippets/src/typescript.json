@@ -1,0 +1,7 @@
+{
+  "Next.js Get initial props outside Component": {
+    "prefix": "gip",
+    "body": "${1:${TM_FILENAME_BASE}}.getInitialProps = ({ req }) => {\treturn $2}",
+    "description": "Next.js Get initial props outside Component"
+  }
+}

@@ -1,0 +1,12 @@
+name: bauhow-cloud
+root: ~/dev/bauhow-cloud
+
+windows:
+  # Use editor (normally neovim).
+  - editor: e
+  - server: 
+      layout: e6ad,225x63,0,0{130x63,0,0,11,94x63,131,0,12}
+      # Automatically start the web server and also the ngrok session.
+      panes: 
+        - pnpm --filter cloud-web dev
+        - ngrok http 3000 --subdomain=bauhow-cloud

@@ -16,14 +16,20 @@ local servers = {
   'tsserver',
   'eslint',
   'jsonls',
+  'lemminx',
   'lua_ls',
-  'tailwindcss'
+  'pyright',
+  'tailwindcss',
+  'yamlls',
+  'dotls',
 }
 
 local servers_with_formatting = {
+  'pyright',
   'lua_ls',
   'eslint',
   'jsonls',
+  'lemminx',
 }
 
 vim.o.completeopt = "menuone,noselect"
@@ -44,13 +50,20 @@ if not (mason_ok and mason_lsp_ok) then
   return
 end
 
+-- Uncomment to enable logging of lsp messages
+-- vim.lsp.set_log_level('debug')
+
 mason.setup()
 mason_lsp.setup()
 
 require("lsp-format").setup {}
 
 -- Setup: LSP Saga
-lspsaga.setup({})
+lspsaga.setup({
+  lightbulb = {
+    enabled = false,
+  },
+})
 
 local normal_capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -70,7 +83,7 @@ local on_attach = function(client, bufnr)
 
   -- This will set up formatting for the attached LSPs
   client.server_capabilities.documentFormattingProvider = true
-  client.server_capabilities.semanticTokensProvider = nil
+  -- client.server_capabilities.semanticTokensProvider = nil
 
   -- Formatting for Typescript should be handled by eslint
   if (u.has_value(servers_with_formatting, client.name)) then
@@ -79,11 +92,16 @@ local on_attach = function(client, bufnr)
 
   -- Keymaps
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
   vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {})
   vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {})
   vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, {})
+
+  -- LSP saga code actions
+  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", {})
+  vim.keymap.set("n", '<Leader>cca', '<cmd>Lspsaga code_action<CR>')
+  vim.keymap.set("n", '<Leader>cd', '<cmd>Lspsaga show_cursor_diagnostics<CR>')
+  vim.keymap.set("n", '<Leader>crn', '<cmd>Lspsaga rename<CR>')
 
   vim.keymap.set("n", "]W", function()
     vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
@@ -121,21 +139,21 @@ if trouble_ok then
   trouble.setup {}
 
   vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
-    {silent = true, noremap = true}
+    { silent = true, noremap = true }
   )
   vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
-    {silent = true, noremap = true}
+    { silent = true, noremap = true }
   )
   vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
-    {silent = true, noremap = true}
+    { silent = true, noremap = true }
   )
   vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
-    {silent = true, noremap = true}
+    { silent = true, noremap = true }
   )
   vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
-    {silent = true, noremap = true}
+    { silent = true, noremap = true }
   )
   vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
-    {silent = true, noremap = true}
+    { silent = true, noremap = true }
   )
 end

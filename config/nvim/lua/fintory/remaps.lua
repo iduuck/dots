@@ -39,10 +39,5 @@ vim.keymap.set("n", '<C-j>', '<C-w>j')
 vim.keymap.set("n", '<C-k>', '<C-w>k')
 vim.keymap.set("n", '<C-l>', '<C-w>l')
 
--- LSP saga code actions
-vim.keymap.set("n", '<Leader>cca', '<cmd>Lspsaga code_action<CR>')
-vim.keymap.set("n", '<Leader>cd', '<cmd>Lspsaga show_cursor_diagnostics<CR>')
-vim.keymap.set("n", '<Leader>crn', '<cmd>Lspsaga rename<CR>')
-
 -- Copy to clipboard
 vim.keymap.set("v", "<leader>y", '"+y')

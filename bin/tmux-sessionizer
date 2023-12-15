@@ -2,8 +2,8 @@
 
 set -e
 
-projects=$(echo "$TMUX_SESSIONIZER_PATHS" | tr ":" "\n")
-projects_found=`echo $projects | xargs -n 1 -I {} find {} -maxdepth 1 -mindepth 1 -type d`
+projects_found=$(ls -d /Users/nick/{.dotfiles,dev/**})
+
 selected_project=`echo "$projects_found" | fzf`
 session_name=`basename $selected_project | tr . _`
 

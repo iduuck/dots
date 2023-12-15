@@ -49,6 +49,15 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 fi
 
 # pnpm
-export PNPM_HOME="/Users/nick/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+# export PNPM_HOME="/Users/nick/Library/pnpm"
+# export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+export PATH="$PATH:$HOME/.maestro/bin"
+
+# bun completions
+[ -s "/Users/nick/.bun/_bun" ] && source "/Users/nick/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -14,6 +14,11 @@ alias gm="git commit"
 alias gr="git pull --rebase"
 alias gp="git push"
 
+# Python
+alias pip="pip3"
+alias pi="pip install"
+alias py="python"
+
 # Bundler
 alias b="bundle"
 alias be="bundle exec"

@@ -10,6 +10,7 @@ return {
   'nvim-telescope/telescope.nvim',
   event = 'CursorHold',
   dependencies = {
+    'folke/trouble.nvim',
     'nvim-lua/plenary.nvim',
   },
   config = function()
@@ -28,7 +29,13 @@ return {
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
         buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
         mappings = {
-          n = { ["q"] = require("telescope.actions").close },
+          n = {
+            ["q"] = require("telescope.actions").close,
+            ["<c-t>"] = require("trouble.providers.telescope").open_with_trouble
+          },
+          i = {
+            ["<c-t>"] = require("trouble.providers.telescope").open_with_trouble
+          },
         },
       },
       pickers = {

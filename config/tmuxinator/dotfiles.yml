@@ -1,0 +1,8 @@
+
+name: dotfiles
+root: ~/.dotfiles
+
+windows:
+  # Use editor (normally neovim).
+  - editor: e
+  - command:

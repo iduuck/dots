@@ -17,7 +17,7 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<Leader>tf", ":ToggleTerm direction=float<CR>")
-    vim.keymap.set("n", "<Leader>tt", "<C-\\><C-n> :ToggleTerm<CR>")
+    -- vim.keymap.set("n", "<Leader>tf", ":ToggleTerm direction=float<CR>")
+    -- vim.keymap.set("n", "<Leader>tt", "<C-\\><C-n> :ToggleTerm<CR>")
   end,
 }

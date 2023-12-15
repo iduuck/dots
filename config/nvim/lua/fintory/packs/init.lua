@@ -17,7 +17,7 @@ return {
   { "djoshea/vim-autoread" },
   { 'andymass/vim-matchup' },
   { 'JoosepAlviste/nvim-ts-context-commentstring' },
-  { 'L3MON4D3/LuaSnip' },
+  { 'echasnovski/mini.ai' },
 
   -- LSP things
   { "williamboman/mason.nvim",                    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonLog" } },

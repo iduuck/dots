@@ -11,6 +11,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.copilot_filetypes = {
   ['*'] = false,
   ['TelescopePrompt'] = false,
+  ['json'] = true,
   ['javascript'] = true,
   ['typescript'] = true,
   ['javascriptreact'] = true,
@@ -18,13 +19,18 @@ vim.g.copilot_filetypes = {
   ['vue'] = true,
   ['lua'] = true,
   ['html'] = true,
+  ['python'] = true,
+  ['css'] = true,
 }
 
 -- Make colors more accurate in a terminal window
-o.termguicolors = true
+vim.o.termguicolors = true
 
 -- Hide '-- INSERT --' line
 vim.cmd('set noshowmode')
+
+-- Disable mouse
+vim.cmd('set mouse=')
 
 -- Ignore some files
 vim.opt.wildignore:append {
