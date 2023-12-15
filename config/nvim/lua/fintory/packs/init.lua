@@ -18,9 +18,12 @@ return {
   { 'andymass/vim-matchup' },
   { 'JoosepAlviste/nvim-ts-context-commentstring' },
   { 'echasnovski/mini.ai' },
+  {
+    "williamboman/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonLog" }
+  },
 
   -- LSP things
-  { "williamboman/mason.nvim",                    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonLog" } },
   { "williamboman/mason-lspconfig.nvim" },
   { "lukas-reineke/lsp-format.nvim" },
   { 'glepnir/lspsaga.nvim' },
@@ -28,7 +31,14 @@ return {
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/cmp-buffer' },
   { "neovim/nvim-lspconfig" },
-  { "b0o/SchemaStore.nvim",                       module = "schemastore" },
+  {
+    "b0o/SchemaStore.nvim",
+    module = "schemastore"
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  },
 
   -- Language support
   { 'jxnblk/vim-mdx-js' },
@@ -36,6 +46,7 @@ return {
   { 'jparise/vim-graphql' },
   { 'pantharshit00/vim-prisma' },
   { 'github/copilot.vim' },
+
 
   -- UI
   { 'nvim-lua/plenary.nvim' },
