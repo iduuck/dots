@@ -31,6 +31,11 @@ return {
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/cmp-buffer' },
   { "neovim/nvim-lspconfig" },
+  { "j-hui/fidget.nvim" },
+  {
+    "folke/neodev.nvim",
+    opts = {}
+  },
   {
     "b0o/SchemaStore.nvim",
     module = "schemastore"

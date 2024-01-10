@@ -11,6 +11,7 @@ local format_ok, lsp_format = pcall(require, 'lsp-format')
 local mason_ok, mason = pcall(require, 'mason')
 local mason_lsp_ok, mason_lsp = pcall(require, 'mason-lspconfig')
 local trouble_ok, trouble = pcall(require, 'trouble')
+local fidget_ok, fidget = pcall(require, 'fidget')
 
 local servers = {
   'tsserver',
@@ -40,6 +41,11 @@ if not (format_ok and lspsaga_ok) then
   return
 end
 
+if not (fidget_ok) then
+  require('notify')("Fidget could not be loaded.")
+  return
+end
+
 if not (comp_ok) then
   require('notify')("Cmp could not be loaded.")
   return
@@ -51,17 +57,20 @@ if not (mason_ok and mason_lsp_ok) then
 end
 
 -- Uncomment to enable logging of lsp messages
--- vim.lsp.set_log_level('debug')
+vim.lsp.set_log_level('debug')
 
 mason.setup()
 mason_lsp.setup()
 
 require("lsp-format").setup {}
 
+fidget.setup {}
+
 -- Setup: LSP Saga
 lspsaga.setup({
   lightbulb = {
-    enabled = false,
+    enable = false,
+    sign = false,
   },
 })
 
@@ -83,7 +92,9 @@ local on_attach = function(client, bufnr)
 
   -- This will set up formatting for the attached LSPs
   client.server_capabilities.documentFormattingProvider = true
-  -- client.server_capabilities.semanticTokensProvider = nil
+
+  -- Turn off semantic tokens (very slow)
+  client.server_capabilities.semanticTokensProvider = nil
 
   -- Formatting for Typescript should be handled by eslint
   if (u.has_value(servers_with_formatting, client.name)) then
