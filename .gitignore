@@ -1,2 +1,7 @@
 !bin
 vim/bundle/
+luarc.json
+.luarc.json
+.supermaven
+.neoconf.json
+startuptime_output

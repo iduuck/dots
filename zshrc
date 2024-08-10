@@ -49,8 +49,8 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 fi
 
 # pnpm
-# export PNPM_HOME="/Users/nick/Library/pnpm"
-# export PATH="$PNPM_HOME:$PATH"
+export PNPM_HOME="/Users/nick/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 export PATH="$PATH:$HOME/.maestro/bin"
@@ -61,3 +61,6 @@ export PATH="$PATH:$HOME/.maestro/bin"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Created by `pipx` on 2024-04-02 16:38:45
+export PATH="$PATH:/Users/nick/.local/bin"
