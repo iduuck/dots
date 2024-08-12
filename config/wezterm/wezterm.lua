@@ -4,7 +4,13 @@ local config = wezterm.config_builder()
 
 -- Appearance
 config.enable_tab_bar = false
-config.color_scheme = "catppuccin-mocha"
+config.color_scheme = "catppuccin-macchiato"
+config.window_padding = {
+	left = 24,
+	right = 24,
+	top = 24,
+	bottom = 0,
+}
 
 -- Font and font appearance
 config.font = wezterm.font("GeistMono Nerd Font", { weight = "Medium" })
