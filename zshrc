@@ -64,3 +64,5 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Created by `pipx` on 2024-04-02 16:38:45
 export PATH="$PATH:/Users/nick/.local/bin"
+
+eval "$(starship init zsh)"
