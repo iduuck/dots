@@ -15,4 +15,25 @@ config.line_height = 1.05
 -- == | >= | <= | ~ | # | % | & | * | + | - | \ | / | ? | : | ; | , | . |
 -- === | >> | << | == | # | % | & | * | + | - | \ | / | ? | : | ; | , | . |
 
+local act = wezterm.action
+
+-- Keybindings
+config.keys = {}
+
+for _, key in ipairs({
+	"b", -- leader for tmux
+	"c", -- close current pane
+	"d", -- detach from session
+	"w", -- vim prefix
+}) do
+	config.keys[#config.keys + 1] = {
+		key = key,
+		mods = "META",
+		action = act.SendKey({
+			key = key,
+			mods = "CTRL",
+		}),
+	}
+end
+
 return config
