@@ -29,8 +29,17 @@ config.keys = {}
 for _, key in ipairs({
 	"b", -- leader for tmux
 	"c", -- close current pane
-	"d", -- detach from session
+	"d", -- detach from session / down in vim
 	"w", -- vim prefix
+	"r", -- redo in vim
+	"u", -- up in vim
+	"t", -- go back in stack (vim)
+	"v", -- "block visual mode" in vim
+
+	-- Only including left and right, since we use `jk` for moving a line
+	-- up and down
+	"h", -- move to left
+	"l", -- move to right
 }) do
 	config.keys[#config.keys + 1] = {
 		key = key,
