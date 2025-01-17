@@ -1,4 +1,4 @@
-# fintory dotfiles
+# iduuck dots ⊙
 
 ## Requirements
 
