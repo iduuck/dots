@@ -44,9 +44,9 @@ _load_settings "$HOME/.zsh/configs"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
-fi
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#     tmux attach -t default || tmux new -s default
+# fi
 
 # pnpm
 export PNPM_HOME="/Users/nick/Library/pnpm"
@@ -65,4 +65,13 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Created by `pipx` on 2024-04-02 16:38:45
 export PATH="$PATH:/Users/nick/.local/bin"
 
-eval "$(starship init zsh)"
+if command -v zoxide &> /dev/null 
+then
+  eval "$(zoxide init zsh)"
+fi
+
+if command -v starship &> /dev/null 
+then
+  eval "$(starship init zsh)"
+fi
+
