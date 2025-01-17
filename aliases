@@ -25,9 +25,6 @@ alias be="bundle exec"
 alias bx="bundle exec"
 alias bi="bundle install"
 
-# Tmux Sessionizer
-alias ts="tmux-sessionizer"
-
 # Rails
 alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
 alias s="rspec"

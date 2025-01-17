@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
+# This shell script is used for indexing the projects in the ~/dev directory.
+# It is used to cd into the project directory and start a tmux session.
+
 set -e
 
-projects_found=$(ls -d /Users/nick/{.dotfiles,dev/**})
-
-selected_project=`echo "$projects_found" | fzf`
-session_name=`basename $selected_project | tr . _`
-
-cd $selected_project
-tat $session_name
+cd $(ls -d /Users/nick/{.dotfiles,dev/**} | fzf)
