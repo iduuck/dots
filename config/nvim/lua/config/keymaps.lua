@@ -2,14 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local map = vim.keymap.set
-local del = vim.keymap.del
-
--- Remove the default keybindings, so that we can add tmux keybindings.
-del({ "t", "n" }, "<C-h>")
-del({ "t", "n" }, "<C-j>")
-del({ "t", "n" }, "<C-k>")
-del({ "t", "n" }, "<C-l>")
+local map = LazyVim.safe_keymap_set
 
 map({ "n", "t" }, "<C-h>", "<cmd>lua require('tmux').move_left()<cr>", { silent = true, desc = "Move Left" })
 map({ "n", "t" }, "<C-j>", "<cmd>lua require('tmux').move_bottom()<cr>", { silent = true, desc = "Move Down" })

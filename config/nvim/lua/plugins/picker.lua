@@ -1,5 +1,5 @@
 return {
-  "nvim-telescope/telescope.nvim",
+  "ibhagwan/fzf-lua",
   keys = {
     { "<C-p>", LazyVim.pick("auto", { root = false }), desc = "Find files (cwd)" },
     { "<A-p>", LazyVim.pick("auto", { root = false }), desc = "Find files (cwd)" },
