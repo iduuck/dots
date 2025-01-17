@@ -8,3 +8,4 @@ credentials.json
 apps/expo/credentials/
 *.sql
 .config
+sst-env.d.ts
