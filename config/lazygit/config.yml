@@ -1,0 +1,5 @@
+promptToReturnFromSubprocess: false
+git:
+  skipHookPrefix: "WIP"
+gui:
+  returnImmediately: true

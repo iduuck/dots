@@ -1,4 +1,5 @@
 return {
+  -- enable swcrc to be json compatible
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function()
@@ -9,6 +10,7 @@ return {
       })
     end,
   },
+  -- allow mdx for nvim
   {
     "davidmh/mdx.nvim",
     config = true,

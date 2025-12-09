@@ -4,10 +4,10 @@
 
 local map = LazyVim.safe_keymap_set
 
-map({ "n", "t" }, "<C-h>", "<cmd>lua require('tmux').move_left()<cr>", { silent = true, desc = "Move Left" })
-map({ "n", "t" }, "<C-j>", "<cmd>lua require('tmux').move_bottom()<cr>", { silent = true, desc = "Move Down" })
-map({ "n", "t" }, "<C-k>", "<cmd>lua require('tmux').move_top()<cr>", { silent = true, desc = "Move Up" })
-map({ "n", "t" }, "<C-l>", "<cmd>lua require('tmux').move_right()<cr>", { silent = true, desc = "Move Right" })
+-- map({ "n", "t" }, "<C-h>", "<cmd>lua require('tmux').move_left()<cr>", { silent = true, desc = "Move Left" })
+-- map({ "n", "t" }, "<C-j>", "<cmd>lua require('tmux').move_bottom()<cr>", { silent = true, desc = "Move Down" })
+-- map({ "n", "t" }, "<C-k>", "<cmd>lua require('tmux').move_top()<cr>", { silent = true, desc = "Move Up" })
+-- map({ "n", "t" }, "<C-l>", "<cmd>lua require('tmux').move_right()<cr>", { silent = true, desc = "Move Right" })
 
 map("n", "<M-j>", "<cmd>m .+1<cr>==", { silent = true, desc = "Move Down" })
 map("n", "<M-k>", "<cmd>m .-2<cr>==", { silent = true, desc = "Move Up" })

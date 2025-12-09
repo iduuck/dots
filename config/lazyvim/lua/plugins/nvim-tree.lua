@@ -11,9 +11,9 @@ return {
     filesystem = {
       bind_to_cwd = true,
       filtered_items = {
-        always_show = { ".github", ".swcrc", ".changeset", ".husky" },
+        always_show = { ".github", ".swcrc", ".changeset", ".husky", ".storybook" },
         always_show_by_pattern = { ".env*" },
-        never_show = { ".vscode", ".DS_Store", ".env.test.example", ".env.example", ".git" },
+        never_show = { ".vscode", ".DS_Store", ".env.test.example", ".env.example" },
       },
     },
   },

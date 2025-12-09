@@ -24,13 +24,12 @@ require("lazy").setup({
     },
 
     -- import ai plugins
-    -- { import = "lazyvim.plugins.extras.ai.copilot" },
+    { import = "lazyvim.plugins.extras.ai.copilot" },
     { import = "lazyvim.plugins.extras.ai.copilot-chat" },
-    { import = "lazyvim.plugins.extras.ai.supermaven" },
+    -- { import = "lazyvim.plugins.extras.ai.supermaven" },
 
     -- import coding plugins
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
-    -- { import = "lazyvim.plugins.extras.coding.blink" },
 
     -- import dap plugins
     -- { import = "lazyvim.plugins.extras.dap.core" },
@@ -44,7 +43,11 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.dial" },
 
     -- import formatting plugins
-    -- { import = "lazyvim.plugins.extras.formatting.black" },
+    -- { import = "lazyvim.plugins.extras.formatting.biome" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+
+    -- import linting plugins
+    { import = "lazyvim.plugins.extras.linting.eslint" },
 
     -- import lang plugins
     { import = "lazyvim.plugins.extras.lang.typescript" },
@@ -85,7 +88,7 @@ require("lazy").setup({
         "gzip",
         -- "matchit",
         -- "matchparen",
-        -- "netrwPlugin",
+        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",

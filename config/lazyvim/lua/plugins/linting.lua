@@ -21,15 +21,11 @@ return {
       linters = {
         biomejs = {
           args = { "check" },
+          condition = function(ctx)
+            -- This might need to be extended at some point, when there are other projects, with other configurations.
+            return vim.fs.find({ "biome.json", "biome.jsonc", "biome.toml" }, { path = ctx.filename, upward = true })[1]
+          end,
         },
-        -- -- Example of using selene only when a selene.toml file is present
-        -- selene = {
-        --   -- `condition` is another LazyVim extension that allows you to
-        --   -- dynamically enable/disable linters based on the context.
-        --   condition = function(ctx)
-        --     return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
-        --   end,
-        -- },
       },
     },
   },
