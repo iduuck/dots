@@ -16,3 +16,6 @@ rerun.txt
 tmp/**/*
 /tags
 /.idea
+CLAUDE.local.md
+AGENTS.local.md
+.claude/
