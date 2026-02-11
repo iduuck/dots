@@ -1,11 +1,13 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   dependencies = {
-    "s1n7ax/nvim-window-picker",
-    version = "2.*",
-    config = function()
-      require("window-picker").setup()
-    end,
+    {
+      "s1n7ax/nvim-window-picker",
+      version = "2.*",
+      config = function()
+        require("window-picker").setup()
+      end,
+    },
   },
   opts = {
     filesystem = {

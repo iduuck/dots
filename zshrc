@@ -49,21 +49,21 @@ _load_settings "$HOME/.zsh/configs"
 # fi
 
 # pnpm
-export PNPM_HOME="/Users/nick/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 export PATH="$PATH:$HOME/.maestro/bin"
 
 # bun completions
-[ -s "/Users/nick/.bun/_bun" ] && source "/Users/nick/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Created by `pipx` on 2024-04-02 16:38:45
-export PATH="$PATH:/Users/nick/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 if command -v zoxide &> /dev/null 
 then
