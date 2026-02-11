@@ -13,7 +13,7 @@ config.window_padding = {
   bottom = 20,
 }
 config.front_end = "WebGpu"
-config.default_cwd = "/Users/nick/dev"
+config.default_cwd = wezterm.home_dir .. "/dev"
 
 ---@diagnostic disable-next-line: lowercase-global
 function get_appearance()
@@ -57,7 +57,7 @@ config.keys = {
   {
     key = "l",
     mods = "LEADER",
-    action = act.MoveTabRelative(-1),
+    action = act.MoveTabRelative(1),
   },
   {
     key = "h",

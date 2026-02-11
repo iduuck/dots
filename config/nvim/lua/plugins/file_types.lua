@@ -1,7 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function()
+    init = function()
       vim.filetype.add({
         pattern = {
           [".swcrc"] = "json",

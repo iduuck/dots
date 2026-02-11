@@ -5,4 +5,4 @@
 
 set -e
 
-cd $(ls -d /Users/nick/{.dotfiles,dev/**} | fzf)
+cd $(ls -d "$HOME"/{.dotfiles,dev/**} | fzf)
