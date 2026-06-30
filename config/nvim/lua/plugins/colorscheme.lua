@@ -1,15 +1,12 @@
+if true then
+  return {}
+end
+
 return {
-  {
-    "sainnhe/sonokai",
-    lazy = true,
-    dependencies = {
-      "AstroNvim/astrocore",
-      opts = {
-        options = { g = {
-          sonokai_style = "shusia",
-          sonokai_dim_inactive_windows = 1,
-        } },
-      },
-    },
+  "catppuccin/nvim",
+  name = "catppuccin",
+  opts = {
+    transparent_background = true,
+    flavour = "mocha",
   },
 }

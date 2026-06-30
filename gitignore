@@ -19,3 +19,8 @@ tmp/**/*
 CLAUDE.local.md
 AGENTS.local.md
 .claude/
+
+.tool-versions
+
+.worktrees
+docs/plans/

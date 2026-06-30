@@ -16,30 +16,36 @@ eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 # Add homebrew bin folder the PATH.
 export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
-# Try loading ASDF from the regular home dir location
-if [ -f "$HOME/.asdf/asdf.sh" ]; then
- . "$HOME/.asdf/asdf.sh"
-elif which brew >/dev/null &&
- [ -f "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh" ]; then
- . "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
-fi
-
 # mkdir .git/safe in the root of repositories you trust
 export PATH=".git/safe/../../bin:$PATH"
 
-if type "npm" > /dev/null && [ "$FDF_ZSH_CONFIG_PATH_DISABLE_NPM" != true ]; then
-  export PATH="$(npm root -g)/bin:$PATH"
+# if type "npm" > /dev/null && [ "$FDF_ZSH_CONFIG_PATH_DISABLE_NPM" != true ]; then
+#   export PATH="$(npm root -g)/bin:$PATH"
+#
+#   # We don't need the path twice, hence we are disabling this for yarn here.
+#   # However, you can force enable this when you export the variable with a value
+#   # of `false`.
+#   if [ "$FDF_ZSH_CONFIG_PATH_DISABLE_YARN" == false ]; then
+#     export FDF_ZSH_CONFIG_PATH_DISABLE_YARN=true
+#   fi
+# fi
+#
+# if type "yarn" > /dev/null && [ "$FDF_ZSH_CONFIG_PATH_DISABLE_YARN" != true ]; then
+#   export PATH="$(yarn global bin):$PATH"
+# fi
 
-  # We don't need the path twice, hence we are disabling this for yarn here.
-  # However, you can force enable this when you export the variable with a value
-  # of `false`.
-  if [ "$FDF_ZSH_CONFIG_PATH_DISABLE_YARN" == false ]; then
-    export FDF_ZSH_CONFIG_PATH_DISABLE_YARN=true
-  fi
-fi
+# Try loading ASDF from the regular home dir location
+# This needs to be done at the very end.
+#
+# @see: https://asdf-vm.com/more/faq.html#shell-not-detecting-newly-installed-shims
+# if [ -f "$HOME/.asdf/asdf.sh" ]; then
+#  . "$HOME/.asdf/asdf.sh"
+# elif which brew >/dev/null &&
+#  [ -f "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh" ]; then
+#  . "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
+# fi
+#
 
-if type "yarn" > /dev/null && [ "$FDF_ZSH_CONFIG_PATH_DISABLE_YARN" != true ]; then
-  export PATH="$(yarn global bin):$PATH"
-fi
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 export -U PATH

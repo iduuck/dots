@@ -20,7 +20,7 @@
   excludesfile = ~/.gitignore
   autocrlf = input
 [merge]
-  ff = only
+  ff = false
 [commit]
   template = ~/.gitmessage
 	gpgsign = true
@@ -34,10 +34,23 @@
   colorMoved = zebra
 [hub]
 	protocol = ssh
-[user]
-	name = Nick Schmidt
-	email = n@nick.qa
-	signingkey = BD3330048DEE8FFE9A15C9B524B6B7843E4401C6
-[gpg]
-	program = /usr/local/MacGPG2/bin/gpg2
-	format = openpgp
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+	trustExitCode = true
+[mergetool]
+	prompt = false
+[stash]
+	showIncludeUntracked = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential

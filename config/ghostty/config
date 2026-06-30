@@ -1,4 +1,4 @@
-theme = catppuccin-mocha.conf
+theme = dark:Catppuccin Frappe,light:Catppuccin Latte
 
 font-size = 13
 
@@ -7,10 +7,13 @@ font-family-bold = MonoLisa Bold Nerd Font Complete Mono
 font-family-italic = MonoLisa Regular Italic Nerd Font Complete Mono
 font-family-bold-italic = MonoLisa Bold Italic Nerd Font Complete Mono
 
+title = ""
 shell-integration = zsh
+shell-integration-features = no-title
 
 adjust-cell-height = 10%
 
+macos-titlebar-style=tabs
 macos-titlebar-proxy-icon=hidden
 
 keybind = ctrl+b>c=new_tab

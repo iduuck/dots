@@ -1,5 +1,6 @@
 promptToReturnFromSubprocess: false
 git:
+  overrideGpg: true
   skipHookPrefix: "WIP"
 gui:
   returnImmediately: true
