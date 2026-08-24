@@ -1,7 +1,11 @@
-#!/bin/sh
+#!/bin/bash
+BARE_ROOT="$(cd "$(git rev-parse --git-common-dir)/.." && pwd)"
+CURRENT="$(pwd)"
 
-local_hook="$HOME"/.git_template.local/hooks/post-checkout
+ENV_FILE=".env"
 
-if [ -f "$local_hook" ]; then
-  . "$local_hook";
+[ "$BARE_ROOT" = "$CURRENT" ] && exit 0
+
+if [ -f "$BARE_ROOT/$ENV_FILE" ] && [ ! -e "$ENV_FILE" ]; then
+  cp "$BARE_ROOT/$ENV_FILE" "$ENV_FILE"
 fi

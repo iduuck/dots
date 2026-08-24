@@ -51,6 +51,7 @@ _load_settings "$HOME/.zsh/configs"
 # pnpm
 export PNPM_HOME="/Users/nick/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+export PATH="$PNPM_HOME/bin:$PATH"
 # pnpm end
 
 export PATH="$PATH:$HOME/.maestro/bin"
